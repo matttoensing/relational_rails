@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_015247) do
+ActiveRecord::Schema.define(version: 2021_07_06_023026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 2021_07_06_015247) do
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
+  create_table "exhibits", force: :cascade do |t|
+    t.string "title"
+    t.integer "person_limit"
+    t.boolean "photos", default: false
+    t.boolean "flash", default: false
+    t.bigint "museum_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["museum_id"], name: "index_exhibits_on_museum_id"
+  end
+
   create_table "libraries", force: :cascade do |t|
     t.string "name"
     t.boolean "public", default: true
@@ -52,6 +63,15 @@ ActiveRecord::Schema.define(version: 2021_07_06_015247) do
     t.index ["library_id"], name: "index_members_on_library_id"
   end
 
+  create_table "museums", force: :cascade do |t|
+    t.string "name"
+    t.boolean "free", default: false
+    t.integer "entry_fee"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "books", "authors"
+  add_foreign_key "exhibits", "museums"
   add_foreign_key "members", "libraries"
 end
