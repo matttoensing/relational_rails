@@ -13,4 +13,16 @@ class LibrariesController < ApplicationController
 
     redirect_to '/libraries'
   end
+
+  def show
+    @library = Library.find(params[:id])
+  end
+
+  def edit
+    @library = Library.find(params[:id])
+  end
+
+  def update
+  end
+
 end

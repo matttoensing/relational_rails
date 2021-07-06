@@ -5,8 +5,9 @@ RSpec.describe 'user creates a new library' do
     it 'creates a new library' do
       visit '/libraries'
       click_link 'Create a new library'
-save_and_open_page
+
       expect(current_path).to eq('/libraries/new')
+      
       fill_in "library[name]", with: "Colorado Public Library"
       fill_in "library[public]", with: "true"
       fill_in "library[zip_code]", with: "54321"
