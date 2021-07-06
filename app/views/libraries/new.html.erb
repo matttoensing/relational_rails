@@ -1,0 +1,24 @@
+<h1>Create New Library</h1>
+
+<%= form_with(model: @library, local: true) do |f| %>
+
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :public %>
+  <%= f.text_field :public %>
+</p>
+
+<p>
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip_code %>
+</p>
+
+<div class="actions">
+    <%= f.submit class: 'btn btn-secondary' %>
+  </div>
+
+<% end %>
