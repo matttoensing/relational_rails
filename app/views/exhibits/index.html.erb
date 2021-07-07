@@ -1,0 +1,8 @@
+<h1>Exhibits Page</h1>
+
+<% @exhibits.each do |exhibit| %>
+<h2><%= exhibit.title %></h2>
+<p><%= exhibit.person_limit %></p>
+<p>Photos: <%= exhibit.photos %></p>
+<p>Flash: <%= exhibit.flash %></p>
+<% end %>
