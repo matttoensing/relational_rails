@@ -3,6 +3,10 @@ class LibrariesController < ApplicationController
     @libraries = Library.all
   end
 
+  def show
+    @library = Library.find(params[:id])
+  end
+
   def new
     @library = Library.new
   end
@@ -15,17 +19,13 @@ class LibrariesController < ApplicationController
     redirect_to '/libraries'
   end
 
-  def show
-    @library = Library.find(params[:id])
-  end
-
   def edit
     @library = Library.find(params[:id])
   end
 
   def update
-    @library = Library.find(params[:id])
-    @library.update(name: params[:library][:name], public: params[:library][:public], zip_code: params[:library][:zip_code])
-    redirect_to "/libraries/#{@library.id}"
+    library = Library.find(params[:id])
+    library.update(name: params[:library][:name], public: params[:library][:public], zip_code: params[:library][:zip_code])
+    redirect_to "/libraries/#{library.id}"
   end
 end
