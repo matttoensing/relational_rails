@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   get '/authors/:author_id/books', to: 'author_books#index'
 
   get '/museums/:museum_id/exhibits', to: 'museum_exhibits#index'
+
+  get '/members', to: 'members#index'
+
+  get '/books', to: 'books#index'
+
+  get '/exhibits', to: 'exhibits#index'
 end
