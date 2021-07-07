@@ -11,4 +11,10 @@ Rails.application.routes.draw do
 
   get '/museums', to: 'museums#index'
   get '/museums/:id', to: 'museums#show'
+
+  get '/libraries/:library_id/members', to: 'library_members#index'
+
+  get '/authors/:author_id/books', to: 'author_books#index'
+
+  get '/museums/:museum_id/exhibits', to: 'museum_exhibits#index'
 end
