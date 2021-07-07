@@ -1,0 +1,7 @@
+<h1>Author Books Page</h1>
+
+<% @books.each do |book| %>
+<h2><%= book.title %></h2>
+<p><%= book.pages %></p>
+<p>Awards: <%= book.awards %></p>
+<% end %>
