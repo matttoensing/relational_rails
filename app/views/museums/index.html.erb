@@ -1,0 +1,7 @@
+<h1>Museums</h1>
+<% @museums.each do |museum| %>
+<h3><%= museum.name %></h3>
+<p><%= museum.free %></p>
+<p><%= museum.entry_fee %></p>
+<%= link_to museum.name, "/museums/#{museum.id}" %>
+<% end %>
