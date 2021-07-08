@@ -20,7 +20,7 @@ RSpec.describe 'author books index' do
     visit "/authors/#{author.id}"
 
     expect(page).to have_link("Book Index")
-save_and_open_page
+
     click_link 'Book Index'
 
     expect(current_path).to eq("/authors/#{author.id}/books")
