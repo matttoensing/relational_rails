@@ -13,23 +13,19 @@ RSpec.describe 'user sees all libraries' do
     end
 
     describe 'records are sorted on page by most recently created' do
-      # let(:this) {'<h3>Boulder Public Library</h3>'}
-      # let(:that) {'<h3>Boise Public Library</h3>'}
-      # are in order when user gets to page
-      #
       it 'will order by recently created' do
         Library.destroy_all
 
-        library1 = Library.create!(name: 'Denver Public Library', public: true, zip_code: 12345, created_at: 189.seconds.ago)
-        library2 = Library.create!(name: 'Boise Public Library', public: true, zip_code: 54321, created_at: 245.seconds.ago)
-        library3 = Library.create!(name: 'Boulder Public Library', public: true, zip_code: 73613, created_at: 11.seconds.ago)
-        library4 = Library.create!(name: 'Aurora Public Library', public: true, zip_code: 37281, created_at: 98.seconds.ago)
+        library1 = Library.create!(name: 'Denver Public Library', public: true, zip_code: 12345, created_at: 11.seconds.ago)
+        library2 = Library.create!(name: 'Boise Public Library', public: true, zip_code: 54321, created_at: 98.seconds.ago)
+        library3 = Library.create!(name: 'Boulder Public Library', public: true, zip_code: 73613, created_at: 187.seconds.ago)
+        library4 = Library.create!(name: 'Aurora Public Library', public: true, zip_code: 37281, created_at: 290.seconds.ago)
 
         visit '/libraries'
 
-        expect(this).to appear_before(that)
-        expect(library4.name).to appear_before(library2.name)
-        expect(library4.name).to appear_before(library2.name)
+        expect(library1.name).to appear_before(library2.name)
+        expect(library2.name).to appear_before(library3.name)
+        expect(library3.name).to appear_before(library4.name)
       end
     end
   end
