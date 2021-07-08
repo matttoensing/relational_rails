@@ -13,9 +13,10 @@ RSpec.describe 'user sees all libraries' do
     end
 
     describe 'records are sorted on page by most recently created' do
-      let(:this) {'<h3>Boulder Public Library</h3>'}
-      let(:that) {'<h3>Boise Public Library</h3>'}
-
+      # let(:this) {'<h3>Boulder Public Library</h3>'}
+      # let(:that) {'<h3>Boise Public Library</h3>'}
+      # are in order when user gets to page
+      #
       it 'will order by recently created' do
         Library.destroy_all
 
@@ -25,8 +26,10 @@ RSpec.describe 'user sees all libraries' do
         library4 = Library.create!(name: 'Aurora Public Library', public: true, zip_code: 37281, created_at: 98.seconds.ago)
 
         visit '/libraries'
-    
+
         expect(this).to appear_before(that)
+        expect(library4.name).to appear_before(library2.name)
+        expect(library4.name).to appear_before(library2.name)
       end
     end
   end
