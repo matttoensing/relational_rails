@@ -1,10 +1,6 @@
 class LibrariesController < ApplicationController
   def index
-    if Library.all.length > 1
-      @libraries = Library.all.order_by_creation_time
-    else
-      @libraries = Library.all
-    end
+    @libraries = Library.all.order_by_creation_time
   end
 
   def show
@@ -17,6 +13,7 @@ class LibrariesController < ApplicationController
 
   def create
     library = Library.new(name: params[:library][:name], public: params[:library][:public], zip_code: params[:library][:zip_code])
+
     # library = Library.new(params.require(:library).permit(:name, :public, :zip_code))
     library.save
 
