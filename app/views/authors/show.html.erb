@@ -13,4 +13,9 @@
   <%= @author.age %>
 </p>
 
+<p>
+  <strong>Books: </strong>
+  <%= @author.number_of_books %>
+</p>
+
 <%= link_to "Book Index", "/authors/#{@author.id}/books" %>

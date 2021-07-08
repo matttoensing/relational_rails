@@ -13,4 +13,9 @@
   <%= @museum.entry_fee %>
 </p>
 
+<p>
+  <strong>Exhibits: </strong>
+  <%= @museum.number_of_exhibits %>
+</p>
+
 <%= link_to "Exhibit Index", "/museums/#{@museum.id}/exhibits" %>
