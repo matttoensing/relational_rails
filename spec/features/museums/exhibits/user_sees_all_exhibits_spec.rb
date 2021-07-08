@@ -14,4 +14,16 @@ RSpec.describe 'museum exhibits index' do
     expect(page).to have_content(exhibit1.flash)
     expect(page).to have_content(exhibit2.title)
   end
+
+  it 'user sees a link that takes them to member index' do
+    museum = Museum.create!(name: "Jones National Museum", free: true, entry_fee: 20)
+
+    visit "/museums/#{museum.id}"
+
+    expect(page).to have_link("Exhibit Index")
+
+    click_link 'Exhibit Index'
+
+    expect(current_path).to eq("/museums/#{museum.id}/exhibits")
+  end
 end

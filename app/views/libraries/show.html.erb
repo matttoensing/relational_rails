@@ -1,1 +1,17 @@
-<%= link_to "Edit", libraries_edit_path(@library) %>
+<p>
+  <strong>Library Name:</strong>
+  <%= @library.name %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @library.public%>
+</p>
+
+<p>
+  <strong>Zip Code:</strong>
+  <%= @library.zip_code %>
+</p>
+
+<%= link_to "Edit", "/libraries/#{@library.id}" %>
+<%= link_to "Member Index", "/libraries/#{@library.id}/members" %>

@@ -1,4 +1,16 @@
-<h1><%= @museum.name %></h1>
+<p>
+  <strong>Museum Name:</strong>
+  <%= @museum.name %>
+</p>
 
-<p><%= @museum.free %></p>
-<p><%= @museum.entry_fee %></p>
+<p>
+  <strong>Free:</strong>
+  <%= @museum.free%>
+</p>
+
+<p>
+  <strong>Entry Fee:</strong>
+  <%= @museum.entry_fee %>
+</p>
+
+<%= link_to "Exhibit Index", "/museums/#{@museum.id}/exhibits" %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/', to: 'home#index'
+  
   get '/libraries', to: 'libraries#index'
   get '/libraries/new', to: 'libraries#new'
   post '/libraries', to: 'libraries#create'
@@ -19,8 +21,12 @@ Rails.application.routes.draw do
   get '/museums/:museum_id/exhibits', to: 'museum_exhibits#index'
 
   get '/members', to: 'members#index'
+  get '/members/:id', to: 'members#show'
 
   get '/books', to: 'books#index'
+  get '/books/:id', to: 'books#show'
 
   get '/exhibits', to: 'exhibits#index'
+  get '/exhibits/:id', to: 'exhibits#show'
+
 end

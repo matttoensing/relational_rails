@@ -1,4 +1,16 @@
-<h1><%= @author.name %></h1>
+<p>
+  <strong>Author Name:</strong>
+  <%= @author.name %>
+</p>
 
-<p><%= @author.published %></p>
-<p><%= @author.age %></p>
+<p>
+  <strong>Published:</strong>
+  <%= @author.published%>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @author.age %>
+</p>
+
+<%= link_to "Book Index", "/authors/#{@author.id}/books" %>

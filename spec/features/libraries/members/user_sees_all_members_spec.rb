@@ -14,4 +14,16 @@ RSpec.describe 'libraries member index' do
     expect(page).to have_content(member1.late_fees)
     expect(page).to have_content(member2.first_name)
   end
+
+  it 'user sees a link that takes them to member index' do
+    library = Library.create!(name: 'Havasu Public Library', public: true, zip_code: 12345)
+
+    visit "/libraries/#{library.id}"
+
+    expect(page).to have_link("Member Index")
+
+    click_link 'Member Index'
+
+    expect(current_path).to eq("/libraries/#{library.id}/members")
+  end
 end

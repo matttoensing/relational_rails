@@ -3,6 +3,7 @@
   <h3><%= library.name %></h3>
   <p><%= library.public %></p>
   <p><%= library.zip_code %></p>
+  <p><%= link_to library.name, "/libraries/#{library.id}" %></p>
 <% end %>
 
 <%= link_to 'Create a new library', '/libraries/new' %>
