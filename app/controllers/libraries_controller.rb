@@ -1,6 +1,10 @@
 class LibrariesController < ApplicationController
   def index
-    @libraries = Library.all
+    if Library.all.length > 1
+      @libraries = Library.all.order_by_creation_time
+    else
+      @libraries = Library.all
+    end
   end
 
   def show
