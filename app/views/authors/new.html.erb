@@ -1,0 +1,24 @@
+<h1>Create New Author</h1>
+
+<%= form_with url: "/authors", method: 'post', local: true do |f|  %>
+
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :published %>
+  <%= f.text_field :published %>
+</p>
+
+<p>
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+</p>
+
+<div class="actions">
+    <%= f.submit "Create Author", class: 'btn btn-secondary' %>
+</div>
+
+<% end %>

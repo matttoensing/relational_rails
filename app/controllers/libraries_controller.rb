@@ -12,11 +12,8 @@ class LibrariesController < ApplicationController
   end
 
   def create
-    library = Library.new(name: params[:library][:name], public: params[:library][:public], zip_code: params[:library][:zip_code])
-
-    # library = Library.new(params.require(:library).permit(:name, :public, :zip_code))
+    library = Library.create!(library_params)
     library.save
-
     redirect_to '/libraries'
   end
 
@@ -26,7 +23,15 @@ class LibrariesController < ApplicationController
 
   def update
     library = Library.find(params[:id])
-    library.update(name: params[:library][:name], public: params[:library][:public], zip_code: params[:library][:zip_code])
+    library.update(library_params)
+    library.save
+
     redirect_to "/libraries/#{library.id}"
+  end
+
+  private
+
+  def library_params
+    params.permit(:name, :public, :zip_code)
   end
 end
