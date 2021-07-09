@@ -8,14 +8,16 @@ RSpec.describe 'user creates a new museum' do
 
       expect(current_path).to eq('/museums/new')
 
-      fill_in "museum[name]", with: "Denver Natural History Museum"
-      fill_in "museum[free]", with: "true"
-      fill_in "museum[entry_fee]", with: "25"
+      fill_in "Name", with: "Denver Natural History Museum"
+      fill_in "Free", with: true
+      fill_in "Entry fee", with: 25
+
       click_on "Create Museum"
 
+      expect(current_path).to eq("/museums")
       expect(page).to have_content('Denver Natural History Museum')
-      expect(page).to have_content('true')
-      expect(page).to have_content('25')
+      expect(page).to have_content(true)
+      expect(page).to have_content(25)
     end
   end
 end

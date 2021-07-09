@@ -12,10 +12,29 @@ class MuseumsController < ApplicationController
   end
 
   def create
-    museum = Museum.new(name: params[:museum][:name], free: params[:museum][:free], entry_fee: params[:museum][:entry_fee])
+    museum = Museum.new(museum_params)
 
     museum.save
 
     redirect_to '/museums'
+  end
+
+  def edit
+    @museum = Museum.find(params[:id])
+  end
+
+  def update
+    museum = Museum.find(params[:id])
+    museum.update(museum_params)
+
+    museum.save
+
+    redirect_to "/museums/#{museum.id}"
+  end
+
+  private
+
+  def museum_params
+    params.permit(:name, :free, :entry_fee)
   end
 end

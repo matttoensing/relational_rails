@@ -1,0 +1,22 @@
+<h1>Edit Museum</h1>
+
+<%= form_with url: "/museums/#{@museum.id}", method: 'patch', local: true do |form| %>
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :free %>
+    <%= form.text_field :free %>
+  </p>
+
+  <p>
+    <%= form.label :entry_fee %>
+    <%= form.text_field :entry_fee %>
+  </p>
+
+  <div class="actions">
+    <p><%= form.submit "Edit Museum", class: 'btn btn-secondary' %></p>
+  </div>
+<% end %>
