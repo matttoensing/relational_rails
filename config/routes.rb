@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/authors', to: 'authors#create'
   get '/authors/:id', to: 'authors#show'
   get '/authors/:id/edit', to: 'authors#edit'
-  patch '/authors/:id', to: 'authors#update'
+  patch "/authors/:id", to: 'authors#update'
   get '/authors/:author_id/books', to: 'author_books#index'
 
 
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get '/museums/new', to: 'museums#new'
   post '/museums', to: 'museums#create'
   get '/museums/:id', to: 'museums#show'
+  get '/museums/:id/edit', to: 'museums#edit'
+  patch 'museums/:id', to: 'museums#update'
   get '/museums/:museum_id/exhibits', to: 'museum_exhibits#index'
 
 ##############
