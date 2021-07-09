@@ -1,0 +1,24 @@
+<h1>Create New Museum</h1>
+
+<%= form_with(model: @museum, local: true) do |f| %>
+
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :free %>
+  <%= f.text_field :free %>
+</p>
+
+<p>
+  <%= f.label :entry_fee %>
+  <%= f.text_field :entry_fee %>
+</p>
+
+<div class="actions">
+    <%= f.submit class: 'btn btn-secondary' %>
+</div>
+
+<% end %>
