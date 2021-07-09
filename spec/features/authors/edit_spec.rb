@@ -20,6 +20,8 @@ RSpec.describe 'user can edit an author' do
       visit "/authors/#{author.id}/edit"
 
       fill_in "Name", with: "Matt Jones"
+      fill_in "Published", with: true
+      fill_in "Age", with: 63
 
       click_on "Submit"
 
