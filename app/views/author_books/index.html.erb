@@ -5,3 +5,5 @@
 <p><%= book.pages %></p>
 <p>Awards: <%= book.awards %></p>
 <% end %>
+
+<%= link_to "Create New Book", "/authors/#{@author.id}/books/new" %>
