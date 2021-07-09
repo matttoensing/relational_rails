@@ -12,7 +12,7 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    author = Author.new(name: params[:author][:name], published: params[:author][:published], age: params[:author][:age])
+    author = Author.new(author_params)
 
     author.save
 
@@ -25,8 +25,16 @@ class AuthorsController < ApplicationController
 
   def update
     author = Author.find(params[:id])
-    author.update(params.require(:author).permit(:name, :published, :age)
+    author.update(author_params)
 
-    redirect_to '/authors'
+    author.save
+
+    redirect_to "/authors/#{author.id}"
+  end
+
+  private
+
+  def author_params
+    params.permit(:name, :published, :age)
   end
 end

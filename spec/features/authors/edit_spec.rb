@@ -19,9 +19,9 @@ RSpec.describe 'user can edit an author' do
 
       visit "/authors/#{author.id}/edit"
 
-      fill_in "author[name]", with: "Matt Jones"
-save_and_open_page
-      click_on "Update Author"
+      fill_in "Name", with: "Matt Jones"
+
+      click_on "Submit"
 
       expect(current_path).to eq("/authors/#{author.id}")
       expect(page).to have_content("Matt Jones")

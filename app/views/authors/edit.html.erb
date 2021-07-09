@@ -1,10 +1,11 @@
-<form action="/authors/" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <h1>Edit <%= @author.name %></h1>
-  <input type='text' name="author[name]" value="<%= @author.name %>">
-  <br/>
-  <input type="text" name="author[published]" value="<%= @author.published %>">
-  <input type="text" name="author[age]" value="<%= @author.age %>">
-  <input type="submit" name="Update Author">
-</form>
+<%= form_with url: "/authors/#{@author.id}", method: :patch, local: true do |form| %>
+
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </p>
+
+  <div class="actions">
+  <p><%= form.submit "Submit", class: 'btn btn-secondary' %> </p>
+  </div>
+<% end %>
