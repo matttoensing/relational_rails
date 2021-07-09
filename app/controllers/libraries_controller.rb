@@ -8,17 +8,13 @@ class LibrariesController < ApplicationController
   end
 
   def new
-    # @library = Library.new
+    @library = Library.new
   end
 
   def create
-    library = Library.new(library_params)
-    if library.save
-      redirect_to '/libraries'
-    else
-      flash[:error] = library.errors.full_messages.to_sentence
-      render :new
-    end
+    library = Library.create!(library_params)
+    library.save
+    redirect_to '/libraries'
   end
 
   def edit
@@ -27,7 +23,9 @@ class LibrariesController < ApplicationController
 
   def update
     library = Library.find(params[:id])
-    library.update(name: params[:library][:name], public: params[:library][:public], zip_code: params[:library][:zip_code])
+    library.update(library_params)
+    library.save
+
     redirect_to "/libraries/#{library.id}"
   end
 

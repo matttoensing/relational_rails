@@ -1,6 +1,6 @@
 <h1>Create New Library</h1>
 
-<%= form_with(model: @library, local: true) do |f| %>
+<%= form_with url: "/libraries", method: 'post', local: true do |f|  %>
 
 <p>
   <%= f.label :name %>
@@ -18,7 +18,7 @@
 </p>
 
 <div class="actions">
-    <%= f.submit class: 'btn btn-secondary' %>
+    <%= f.submit "Create Library", class: 'btn btn-secondary' %>
 </div>
 
 <% end %>
