@@ -1,0 +1,23 @@
+<h1>Create New Book</h1>
+
+<%= form_with url: "/authors/#{@author.id}/books", method: :post, local: true do |f| %>
+<p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</p>
+
+<p>
+  <%= f.label :pages %>
+  <%= f.text_field :pages %>
+</p>
+
+<p>
+  <%= f.label :awards %>
+  <%= f.text_field :awards %>
+</p>
+
+<div class="actions">
+    <%= f.submit "Create Book", class: 'btn btn-secondary' %>
+</div>
+
+<% end %>
