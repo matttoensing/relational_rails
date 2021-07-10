@@ -1,7 +1,12 @@
 class MuseumExhibitsController < ApplicationController
   def index
-    @museum = Museum.find(params[:museum_id])
-    @exhibits = @museum.exhibits
+    if params[:sort]
+      @museum = Museum.find(params[:museum_id])
+      @exhibits = @museum.exhibits.sorts_title_alphabetically
+    else
+      @museum = Museum.find(params[:museum_id])
+      @exhibits = @museum.exhibits
+    end
   end
 
   def new
