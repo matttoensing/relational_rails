@@ -6,4 +6,22 @@ class MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
   end
+
+  def edit
+    @member = Member.find(params[:id])
+  end
+
+  def update
+    member = Member.find(params[:id])
+    member.update(member_params)
+    member.save
+
+    redirect_to "/members/#{member.id}"
+  end
+
+  private
+
+  def member_params
+    params.permit(:first_name, :last_name, :age, :late_fees)
+  end
 end
