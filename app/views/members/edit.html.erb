@@ -1,0 +1,27 @@
+<h1>Edit Member</h1>
+
+<%= form_with url: "/members/#{@member.id}", method: :patch, local: true do |form|  %>
+<p>
+<%= form.label :first_name %>
+<%= form.text_field :first_name %>
+</p>
+<p>
+<%= form.label :last_name %>
+<%= form.text_field :last_name %>
+</p>
+
+<p>
+  <%= form.label :age %>
+  <%= form.text_field :age %>
+</p>
+
+<p>
+  <%= form.label :late_fees %>
+  <%= form.text_field :late_fees %>
+</p>
+
+<div class="actions">
+  <%= form.submit "Update Member", class: 'btn btn-secondary' %>
+</div>
+
+<% end %>

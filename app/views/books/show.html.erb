@@ -3,3 +3,6 @@
 <h2><%= @book.title %></h2>
 <p><%= @book.pages %></p>
 <p>Awards: <%= @book.awards %></p>
+
+
+<%= link_to "Edit Book", "/books/#{@book.id}/edit" %>

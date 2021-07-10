@@ -35,12 +35,18 @@ Rails.application.routes.draw do
 ##############
   get '/members', to: 'members#index'
   get '/members/:id', to: 'members#show'
+  get '/members/:id/edit', to: 'members#edit'
+  patch '/members/:id', to: 'members#update'
 
   get '/books', to: 'books#index'
   get '/books/:id', to: 'books#show'
+  get '/books/:id/edit', to: 'books#edit'
+  patch '/books/:id', to: 'books#update'
 
   get '/exhibits', to: 'exhibits#index'
   get '/exhibits/:id', to: 'exhibits#show'
+  get '/exhibits/:id/edit', to: 'exhibits#edit'
+  patch '/exhibits/:id', to: 'exhibits#update'
 
 
 end
