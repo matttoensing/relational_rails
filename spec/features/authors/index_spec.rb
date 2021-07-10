@@ -46,7 +46,7 @@ RSpec.describe 'user sees all authors' do
 
       visit '/authors'
 
-      click_on "Edit: #{author1.name}"
+      click_link "Edit: #{author1.name}"
 
       expect(current_path).to eq("/authors/#{author1.id}/edit")
     end

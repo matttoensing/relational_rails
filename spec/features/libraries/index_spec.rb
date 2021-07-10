@@ -39,6 +39,15 @@ RSpec.describe 'user sees all libraries' do
         expect(page).to have_link("Edit: #{library1.name}")
         expect(page).to have_link("Edit: #{library2.name}")
       end
+
+      it 'click on edit link redirects to edit page' do
+        library1 = Library.create!(name: 'Denver Public Library', public: true, zip_code: 12345, created_at: 11.seconds.ago)
+
+        visit '/libraries'
+        click_link "Edit: #{library1.name}"
+
+        expect(current_path).to eq("/libraries/#{library1.id}/edit")
+      end
     end
   end
 end
