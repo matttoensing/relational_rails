@@ -1,0 +1,28 @@
+<h1>Create New Exhibit</h1>
+
+<%= form_with url: "/museums/#{@museum.id}/exhibits", method: :post, local: true do |f| %>
+<p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</p>
+
+<p>
+  <%= f.label :person_limit %>
+  <%= f.text_field :person_limit %>
+</p>
+
+<p>
+  <%= f.label :photos %>
+  <%= f.text_field :photos %>
+</p>
+
+<p>
+  <%= f.label :flash %>
+  <%= f.text_field :flash %>
+</p>
+
+<div class="actions">
+    <%= f.submit "Create Exhibit", class: 'btn btn-secondary' %>
+</div>
+
+<% end %>
