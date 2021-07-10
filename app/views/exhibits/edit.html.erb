@@ -1,0 +1,28 @@
+<h1>Edit exhibit</h1>
+
+<%= form_with url: "/exhibits/#{@exhibit.id}", method: :patch, local: true do |form|  %>
+<p>
+<%= form.label :title %>
+<%= form.text_field :title %>
+</p>
+
+<p>
+  <%= form.label :person_limit %>
+  <%= form.text_field :person_limit %>
+</p>
+
+<p>
+  <%= form.label :photos %>
+  <%= form.text_field :photos %>
+</p>
+
+<p>
+  <%= form.label :flash %>
+  <%= form.text_field :flash %>
+</p>
+
+<div class="actions">
+  <%= form.submit "Update Exhibit", class: 'btn btn-secondary' %>
+</div>
+
+<% end %>
