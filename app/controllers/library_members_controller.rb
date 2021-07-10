@@ -1,7 +1,12 @@
 class LibraryMembersController < ApplicationController
   def index
-    @library = Library.find(params[:library_id])
-    @members = @library.members
+    if params[:sort]
+      @library = Library.find(params[:library_id])
+      @members = @library.members.sorts_first_name_alphabetically
+    else
+      @library = Library.find(params[:library_id])
+      @members = @library.members
+    end
   end
 
   def new

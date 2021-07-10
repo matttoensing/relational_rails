@@ -23,7 +23,7 @@ RSpec.describe 'user sees all authors' do
       author4 = Author.create!(name: 'George RR Martin', published: true, age: 74, created_at: 68.seconds.ago)
 
       visit '/authors'
-      save_and_open_page
+      
       expect(author3.name).to appear_before(author4.name)
       expect(author4.name).to appear_before(author1.name)
       expect(author1.name).to appear_before(author2.name)
