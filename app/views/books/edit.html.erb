@@ -1,0 +1,23 @@
+<h1>Edit book</h1>
+
+<%= form_with url: "/books/#{@book.id}", method: :patch, local: true do |form|  %>
+<p>
+<%= form.label :title %>
+<%= form.text_field :title %>
+</p>
+
+<p>
+  <%= form.label :pages %>
+  <%= form.text_field :pages %>
+</p>
+
+<p>
+  <%= form.label :awards %>
+  <%= form.text_field :awards %>
+</p>
+
+<div class="actions">
+  <%= form.submit "Update Book", class: 'btn btn-secondary' %>
+</div>
+
+<% end %>
