@@ -21,7 +21,7 @@ RSpec.describe 'user can edit books on the author page' do
     fill_in "Title", with: "Matt Jones"
     fill_in "Pages", with: '999'
     fill_in "Awards", with: true
-save_and_open_page
+
     click_on "Update Book"
 
     expect(current_path).to eq("/books/#{book.id}")
