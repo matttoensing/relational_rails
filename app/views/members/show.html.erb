@@ -6,3 +6,7 @@
 <p>Late Fees: <%= @member.late_fees %></p>
 
 <%= link_to "Edit Member", "/members/#{@member.id}/edit" %>
+
+<p>
+  <%= link_to "Delete: #{@member.first_name}", "/members/#{@member.id}", method: :delete %>
+</p>
