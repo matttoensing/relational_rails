@@ -4,7 +4,12 @@
   <p><%= library.public %></p>
   <p><%= library.zip_code %></p>
   <p><%= link_to library.name, "/libraries/#{library.id}" %></p>
-  <p><%= link_to "Edit: #{library.name}", "/libraries/#{library.id}/edit" %></p>
+  <p>
+    <%= link_to "Edit: #{library.name}", "/libraries/#{library.id}/edit" %>
+  </p>
+  <p>
+    <%= button_to "Delete: #{library.name}", "/libraries/#{library.id}", method: :delete %>
+  </p>
 <% end %>
 
 <%= link_to 'Create a new library', '/libraries/new' %>

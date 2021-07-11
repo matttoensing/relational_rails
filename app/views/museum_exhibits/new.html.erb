@@ -1,28 +1,12 @@
-<h1>Create New Exhibit</h1>
 
-<%= form_with url: "/museums/#{@museum.id}/exhibits", method: :post, local: true do |f| %>
-<p>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</p>
-
-<p>
-  <%= f.label :person_limit %>
-  <%= f.text_field :person_limit %>
-</p>
-
-<p>
-  <%= f.label :photos %>
-  <%= f.text_field :photos %>
-</p>
-
-<p>
-  <%= f.label :flash %>
-  <%= f.text_field :flash %>
-</p>
-
-<div class="actions">
-    <%= f.submit "Create Exhibit", class: 'btn btn-secondary' %>
-</div>
-
+<%= form_tag("/museums/#{@museum.id}/exhibits", method: "post") do %>
+<%= label_tag  "title_id", "Title" %>
+  <%= text_field_tag(:title) %> <br>
+  <%= label_tag  "person_limit_id", "Person Limit" %>
+  <%= text_field_tag(:person_limit) %> <br>
+  <%= label_tag  "photos_id", "Photos Allowed" %>
+  <%= check_box_tag(:photos) %> <br>
+  <%= label_tag  "flash_id", "Falsh Allowed" %>
+  <%= check_box_tag(:flash) %> <br>
+  <%= submit_tag("Submit") %>
 <% end %>
