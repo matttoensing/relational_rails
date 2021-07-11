@@ -2,7 +2,7 @@
 
 <% @exhibits.each do |exhibit| %>
 <h2><%= exhibit.title %></h2>
-<p><%= exhibit.person_limit %></p>
+<p>Person limit: <%= exhibit.person_limit %></p>
 <p>Photos: <%= exhibit.photos %></p>
 <p>Flash: <%= exhibit.flash %></p>
 <p>
@@ -13,3 +13,15 @@
 <%= link_to "Create New Exhibit", "/museums/#{@museum.id}/exhibits/new" %>
 
 <%= link_to "Sort by Title", "/museums/#{@museum.id}/exhibits?sort=title" %>
+<br>
+<br>
+<div class="form-group">
+  <label for="filter" class="col-sm-2 control-label">Filter by Person Limit</label>
+  <div class="col-sm-4">
+    <input class="form-control" id="filter">
+  </div>
+  <br>
+  <div>
+    <%= button_to "Submit", "/museums/#{@museum.id}/exhibits?filter=plimit" %>
+  </div>
+</div>
