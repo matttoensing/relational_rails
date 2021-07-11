@@ -69,4 +69,18 @@ RSpec.describe 'libraries member index' do
 
     expect(current_path).to eq("/members/#{member1.id}/edit")
   end
+
+  it 'can see link and click delete' do
+    library = Library.create!(name: "Memphis Public Library", public: true,zip_code: 12345)
+    member = library.members.create!(first_name: "Brett",last_name: "Jones", age: 27, late_fees: true)
+
+    visit "/libraries/#{library.id}/members"
+
+    expect(page).to have_content("Delete: #{member.first_name}")
+
+    click_link "Delete: #{member.first_name}"
+
+    expect(current_path).to eq("/members")
+    expect(page).to_not have_content("Brett")
+  end
 end

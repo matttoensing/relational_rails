@@ -8,4 +8,12 @@
 <p>
 <%= link_to "Edit: #{member.first_name}", "/members/#{member.id}/edit" %>
 </p>
+
+<p>
+<%= link_to "View: #{member.first_name}", "/members/#{member.id}" %>
+</p>
+
+<p>
+  <%= link_to "Delete: #{member.first_name}", "/members/#{member.id}", method: :delete %>
+</p>
 <% end %>

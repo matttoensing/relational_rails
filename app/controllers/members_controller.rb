@@ -19,6 +19,12 @@ class MembersController < ApplicationController
     redirect_to "/members/#{member.id}"
   end
 
+  def delete
+    member = Member.find(params[:id])
+    member.destroy
+    redirect_to "/members"
+  end
+
   private
 
   def member_params

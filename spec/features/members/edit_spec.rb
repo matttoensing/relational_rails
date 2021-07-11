@@ -21,7 +21,7 @@ RSpec.describe 'user can edit members on the library page' do
     fill_in "First name", with: "Matt"
     fill_in "Last name", with: "Jones"
     fill_in "Age", with: '56'
-    fill_in "Late fees", with: true
+    check "Check if has late fees"
 
     click_on "Update Member"
 
