@@ -26,5 +26,30 @@ RSpec.describe 'user sees one library' do
 
       expect(page).to have_content("Members: #{library.number_of_members}")
     end
+
+    describe 'delete button/link' do
+      it 'can view a delete button' do
+        library = Library.create!(name: 'West Public Library', public: true, zip_code: 12345)
+        member1 = library.members.create!(first_name: "Brett",last_name: "Jones", age: 27, late_fees: true)
+        member2 = library.members.create!(first_name: "Matt",last_name: "Toensing", age: 33, late_fees: true)
+
+        visit "/libraries/#{library.id}"
+
+        expect(page).to have_content("Delete: #{library.name}")
+      end
+
+      it 'can click the delete button/link' do
+        library = Library.create!(name: 'West Public Library', public: true, zip_code: 12345)
+        member1 = library.members.create!(first_name: "Brett",last_name: "Jones", age: 27, late_fees: true)
+        member2 = library.members.create!(first_name: "Matt",last_name: "Toensing", age: 33, late_fees: true)
+
+        visit "/libraries/#{library.id}"
+
+        click_link "Delete: #{library.name}"
+
+        expect(current_path).to eq("/libraries")
+        expect(page).to_not have_content('West Public Library')
+      end
+    end
   end
 end
