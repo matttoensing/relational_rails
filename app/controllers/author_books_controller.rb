@@ -7,6 +7,11 @@ class AuthorBooksController < ApplicationController
       @author = Author.find(params[:author_id])
       @books = @author.books
     end
+
+    if params.has_key?(:page)
+      @author = Author.find(params[:author_id])
+      @books = @author.books.books_over_page_length(params[:page].to_i)
+    end
   end
 
   def new
