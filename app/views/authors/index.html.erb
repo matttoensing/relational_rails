@@ -4,6 +4,7 @@
 <p><%= author.published %></p>
 <p><%= author.age %></p>
 <%= link_to author.name, "/authors/#{author.id}" %>
+<%= link_to "Edit: #{author.name}", "/authors/#{author.id}/edit" %>
 <% end %>
 
 <%= link_to 'Create a new author', '/authors/new' %>

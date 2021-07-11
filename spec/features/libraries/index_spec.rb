@@ -28,5 +28,26 @@ RSpec.describe 'user sees all libraries' do
         expect(library3.name).to appear_before(library4.name)
       end
     end
+
+    describe 'page has a link to each libraries edit page' do
+      it 'user can see a link to edit each library' do
+        library1 = Library.create!(name: 'Denver Public Library', public: true, zip_code: 12345, created_at: 11.seconds.ago)
+        library2 = Library.create!(name: 'Boise Public Library', public: true, zip_code: 54321, created_at: 98.seconds.ago)
+
+        visit '/libraries'
+
+        expect(page).to have_link("Edit: #{library1.name}")
+        expect(page).to have_link("Edit: #{library2.name}")
+      end
+
+      it 'click on edit link redirects to edit page' do
+        library1 = Library.create!(name: 'Denver Public Library', public: true, zip_code: 12345, created_at: 11.seconds.ago)
+
+        visit '/libraries'
+        click_link "Edit: #{library1.name}"
+
+        expect(current_path).to eq("/libraries/#{library1.id}/edit")
+      end
+    end
   end
 end

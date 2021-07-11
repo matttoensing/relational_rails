@@ -4,4 +4,7 @@
 <h2><%= book.title %></h2>
 <p><%= book.pages %></p>
 <p>Awards: <%= book.awards %></p>
+<p>
+<%= link_to "Edit: #{book.title}", "/books/#{book.id}/edit" %>
+</p>
 <% end %>

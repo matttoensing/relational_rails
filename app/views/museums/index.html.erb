@@ -3,7 +3,12 @@
 <h3><%= museum.name %></h3>
 <p><%= museum.free %></p>
 <p><%= museum.entry_fee %></p>
-<%= link_to museum.name, "/museums/#{museum.id}" %>
+<p>
+  <%= link_to museum.name, "/museums/#{museum.id}" %>
+</p>
+<p>
+  <%= link_to "Edit: #{museum.name}", "/museums/#{museum.id}/edit" %>
+</p>
 <% end %>
 <br>
 <br>

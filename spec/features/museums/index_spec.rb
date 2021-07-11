@@ -29,4 +29,16 @@ RSpec.describe 'user sees all museums' do
       expect(museum3.name).to appear_before(museum4.name)
     end
   end
+
+  describe 'page has a link to each libraries edit page' do
+    it 'user sees a link for each museum' do
+      museum1 = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25, created_at: 10.seconds.ago)
+      museum2 = Museum.create!(name: 'WW2 Airplane History Museum', free: true, entry_fee: 25, created_at: 120.seconds.ago)
+
+      visit '/museums'
+
+      expect(page).to have_link("Edit: #{museum1.name}")
+      expect(page).to have_link("Edit: #{museum2.name}")
+    end
+  end
 end

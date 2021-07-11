@@ -23,10 +23,32 @@ RSpec.describe 'user sees all authors' do
       author4 = Author.create!(name: 'George RR Martin', published: true, age: 74, created_at: 68.seconds.ago)
 
       visit '/authors'
-      
+
       expect(author3.name).to appear_before(author4.name)
       expect(author4.name).to appear_before(author1.name)
       expect(author1.name).to appear_before(author2.name)
+    end
+  end
+
+  describe 'user sees a link to edit authors'  do
+    it 'page has an edit link for each author' do
+      author1 = Author.create!(name: 'Hunter S Thompson', published: true, age: 63, created_at: 100.seconds.ago)
+      author2 = Author.create!(name: 'Malcom Gladwell', published: true, age: 57, created_at: 360.seconds.ago)
+
+      visit '/authors'
+
+      expect(page).to have_link("Edit: #{author1.name}")
+      expect(page).to have_link("Edit: #{author2.name}")
+    end
+
+    it 'clicks on link to take to edit page' do
+      author1 = Author.create!(name: 'Hunter S Thompson', published: true, age: 63, created_at: 100.seconds.ago)
+
+      visit '/authors'
+
+      click_link "Edit: #{author1.name}"
+
+      expect(current_path).to eq("/authors/#{author1.id}/edit")
     end
   end
 end
