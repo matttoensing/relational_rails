@@ -10,7 +10,7 @@ class ExhibitsController < ApplicationController
   def edit
     @exhibit = Exhibit.find(params[:id])
   end
-
+  
   def update
     exhibit = Exhibit.find(params[:id])
     exhibit.update(exhibit_params)
