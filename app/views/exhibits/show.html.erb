@@ -5,4 +5,5 @@
 <p>Photos: <%= @exhibit.photos %></p>
 <p>Flash: <%= @exhibit.flash %></p>
 
-<%= link_to "Edit Exhibit", "/exhibits/#{@exhibit.id}/edit" %>
+<%= link_to "Edit: #{@exhibit.title}", "/exhibits/#{@exhibit.id}/edit" %>
+<%= button_to "Delete: #{@exhibit.title}", "/exhibits/#{@exhibit.id}", method: :delete %>
