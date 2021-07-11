@@ -21,4 +21,22 @@ RSpec.describe 'can delete an author from index page' do
     expect(page).to_not have_content('Hunter S Thompson')
     expect(page).to have_content('Malcom Gladwell')
   end
+
+  it 'user sees a button to delete author from show page' do
+    author = Author.create!(name: 'Hunter S Thompson', published: true, age: 63)
+
+    visit "/authors/#{author.id}"
+
+    expect(page).to have_button("Delete: #{author.name}")
+  end
+
+  it 'can delete the author record when clicking delete button' do
+    author = Author.create!(name: 'Hunter S Thompson', published: true, age: 63)
+
+    visit "/authors/#{author.id}"
+    click_on "Delete: #{author.name}"
+
+    expect(current_path).to eq('/authors')
+    expect(page).to_not have_content('Hunter S Thompson')
+  end
 end
