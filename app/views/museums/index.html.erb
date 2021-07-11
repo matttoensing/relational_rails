@@ -9,6 +9,9 @@
 <p>
   <%= link_to "Edit: #{museum.name}", "/museums/#{museum.id}/edit" %>
 </p>
+<p>
+  <%= button_to "Delete: #{museum.name}", "/museums/#{museum.id}", method: :delete %>
+</p>
 <% end %>
 <br>
 <br>
