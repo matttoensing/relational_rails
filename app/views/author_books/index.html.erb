@@ -7,6 +7,7 @@
       <p class="card-text">Number of Pages: <%= book.pages %></p>
 <p class="card-text">Awards: <%= book.awards %></p>
 <a href="#" class="btn"><%= link_to "Edit: #{book.title}", "/books/#{book.id}/edit" %></a>
+<a href="#" class="card-link"><%= button_to "Delete #{book.title}", "/books/#{book.id}", method: :delete %></a>
 </div>
 </div><br>
 <% end %>
