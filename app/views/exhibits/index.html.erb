@@ -5,4 +5,7 @@
 <p><%= exhibit.person_limit %></p>
 <p>Photos: <%= exhibit.photos %></p>
 <p>Flash: <%= exhibit.flash %></p>
+<p>
+<%= link_to "Edit: #{exhibit.title}", "/exhibits/#{exhibit.id}/edit" %>
+</p>
 <% end %>
