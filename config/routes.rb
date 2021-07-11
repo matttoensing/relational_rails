@@ -51,6 +51,5 @@ Rails.application.routes.draw do
   get '/exhibits/:id', to: 'exhibits#show'
   get '/exhibits/:id/edit', to: 'exhibits#edit'
   patch '/exhibits/:id', to: 'exhibits#update'
-
-
+  delete '/exhibits/:id', to: 'exhibits#delete'
 end

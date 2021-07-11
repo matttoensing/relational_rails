@@ -10,7 +10,7 @@ class ExhibitsController < ApplicationController
   def edit
     @exhibit = Exhibit.find(params[:id])
   end
-  
+
   def update
     exhibit = Exhibit.find(params[:id])
     exhibit.update(exhibit_params)
@@ -18,6 +18,13 @@ class ExhibitsController < ApplicationController
     exhibit.save
 
     redirect_to "/exhibits/#{exhibit.id}"
+  end
+
+  def delete
+    exhibit = Exhibit.find(params[:id])
+    exhibit.destroy
+
+    redirect_to "/exhibits"
   end
 
   private

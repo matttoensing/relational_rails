@@ -7,7 +7,7 @@ RSpec.describe 'user can edit exhibits on the museum page' do
 
     visit "/exhibits/#{exhibit.id}"
 
-    click_on "Edit Exhibit"
+    click_on "Edit: #{exhibit.title}"
 
     expect(current_path).to eq("/exhibits/#{exhibit.id}/edit")
   end

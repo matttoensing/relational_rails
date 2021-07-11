@@ -17,7 +17,7 @@ RSpec.describe 'user creates a new exhibit from the museums' do
     visit "/museums/#{museum.id}/exhibits/new"
 
     fill_in "Title", with: "The Matt Exhibit"
-    fill_in "Person limit", with: 200
+    fill_in "Person Limit", with: 200
     fill_in "Photos", with: true
     fill_in "Flash", with: true
 
