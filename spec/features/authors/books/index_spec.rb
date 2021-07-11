@@ -93,7 +93,8 @@ RSpec.describe 'author books index' do
       fill_in "page", with: 200
 
       click_on "Filter"
-  
+
+      expect(current_path).to eq("/authors/#{author.id}/books")
       expect(page).to_not have_content("Wild wild west")
     end
   end
