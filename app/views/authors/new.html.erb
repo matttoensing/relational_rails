@@ -1,24 +1,13 @@
 <h1>Create New Author</h1>
-
-<%= form_with url: "/authors", method: 'post', local: true do |f|  %>
-
-<p>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</p>
-
-<p>
-  <%= f.label :published %>
-  <%= f.text_field :published %>
-</p>
-
-<p>
-  <%= f.label :age %>
-  <%= f.text_field :age %>
-</p>
-
-<div class="actions">
-    <%= f.submit "Create Author", class: 'btn btn-secondary' %>
-</div>
-
+<br>
+<%= form_tag("/authors", method: 'post') do %>
+  <%= label_tag "name_id", "Name" %>
+  <%= text_field_tag(:name) %> <br><br>
+  <%= label_tag "age", "Age" %>
+  <%= text_field_tag(:age) %> <br><br>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1"><%= label_tag "published_id", "Published" %></label><br>
+    <button type="submit" class="btn"><%= submit_tag("Create Author")%></button>
+  </div>
 <% end %>

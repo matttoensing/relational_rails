@@ -1,22 +1,17 @@
-<p>
-  <strong>Author Name:</strong>
-  <%= @author.name %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @author.published%>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @author.age %>
-</p>
-
-<p>
-  <strong>Books: </strong>
-  <%= @author.number_of_books %>
-</p>
-
-<%= link_to "Book Index", "/authors/#{@author.id}/books" %>
-<%= link_to "Update Author", "/authors/#{@author.id}/edit" %>
+<div class="card">
+  <h5 class="card-header"><%= @author.name %></h5>
+  <div class="card-body">
+    <p class="card-text"><p>
+      Published: <%= @author.published%>
+      </p>
+      <p>
+        <%= @author.age %>
+      </p>
+      <p>
+        Books: <%= @author.number_of_books %>
+      </p>
+    <a href="#" class="btn btn-primary"><%= link_to "Book Index", "/authors/#{@author.id}/books" %></a>
+    <a href="#" class="btn btn-primary"><%= link_to "Update Author", "/authors/#{@author.id}/edit" %></a>
+    <a href="#" class="btn"><%= button_to "Delete: #{@author.name}", "/authors/#{@author.id}", method: :delete %></a>
+  </div>
+</div>

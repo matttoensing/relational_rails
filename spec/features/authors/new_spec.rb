@@ -9,9 +9,9 @@ RSpec.describe 'user creates a new author' do
       click_link 'Create a new author'
       expect(current_path).to eq('/authors/new')
 
-      fill_in "Name", with: "Hunter S Thompson"
-      fill_in "Published", with: true
-      fill_in "Age", with: 63
+      fill_in 'name', with: "Hunter S Thompson"
+      check 'exampleCheck1'
+      fill_in "age", with: 63
 
       click_on "Create Author"
 

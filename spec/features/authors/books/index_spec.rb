@@ -68,4 +68,34 @@ RSpec.describe 'author books index' do
 
     expect(current_path).to eq("/books/#{book1.id}/edit")
   end
+
+  describe 'user can filter books by number of pages' do
+    it 'has a form and button to submit a number' do
+      author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
+      book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: true)
+      book2 = author.books.create!(title: "Wild wild west", pages: 124, awards: true)
+      book3 = author.books.create!(title: "Jungle Beats", pages: 247, awards: true)
+
+      visit "authors/#{author.id}/books"
+
+      fill_in "page", with: 200
+
+      expect(page).to have_button("Filter")
+    end
+
+    it 'can submit a number to filter books by page number' do
+      author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
+      book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: true)
+      book2 = author.books.create!(title: "Wild wild west", pages: 124, awards: true)
+      book3 = author.books.create!(title: "Jungle Beats", pages: 247, awards: true)
+
+      visit "authors/#{author.id}/books"
+      fill_in "page", with: 200
+
+      click_on "Filter"
+
+      expect(current_path).to eq("/authors/#{author.id}/books")
+      expect(page).to_not have_content("Wild wild west")
+    end
+  end
 end
