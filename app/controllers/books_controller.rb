@@ -20,6 +20,11 @@ class BooksController < ApplicationController
     redirect_to "/books/#{book.id}"
   end
 
+  def delete
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to '/books'
+  end
 
   private
 
