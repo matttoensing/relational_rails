@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get '/museums/:id', to: 'museums#show'
   get '/museums/:id/edit', to: 'museums#edit'
   patch 'museums/:id', to: 'museums#update'
+  delete 'museums/:id', to: 'museums#delete'
   get '/museums/:museum_id/exhibits', to: 'museum_exhibits#index'
   get '/museums/:museum_id/exhibits/new', to: 'museum_exhibits#new'
   post '/museums/:museum_id/exhibits', to: 'museum_exhibits#create'
