@@ -20,3 +20,6 @@
 
 <%= link_to "Edit", "/libraries/#{@library.id}/edit" %>
 <%= link_to "Member Index", "/libraries/#{@library.id}/members" %>
+<p>
+  <%= link_to "Delete: #{@library.name}", "/libraries/#{@library.id}", method: :delete %>
+</p>
