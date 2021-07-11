@@ -1,12 +1,14 @@
 <h1>Author Books Page</h1>
 
 <% @books.each do |book| %>
-<h2><%= book.title %></h2>
-<p><%= book.pages %></p>
-<p>Awards: <%= book.awards %></p>
-<p>
-<%= link_to "Edit: #{book.title}", "/books/#{book.id}/edit" %>
-</p>
+<div class="card w-50">
+    <div class="card-body">
+      <h5 class="card-title"><h2><%= book.title %></h2></h5>
+      <p class="card-text">Number of Pages: <%= book.pages %></p>
+<p class="card-text">Awards: <%= book.awards %></p>
+<a href="#" class="btn"><%= link_to "Edit: #{book.title}", "/books/#{book.id}/edit" %></a>
+</div>
+</div><br>
 <% end %>
 
 <%= link_to "Create New Book", "/authors/#{@author.id}/books/new" %>

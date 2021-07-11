@@ -1,11 +1,16 @@
-<h1>Authors</h1>
+<h1>Authors</h1><br>
+
 <% @authors.each do |author| %>
-<h3><%= author.name %></h3>
-<p><%= author.published %></p>
-<p><%= author.age %></p>
+<div class="card border-secondary mb-3" style="max-width: 18rem;">
+<div class="card-header"><%= author.name %></div>
+<h5 class="card-title">Published: <%= author.published %></h5>
+<h5 class="card-title">Author Age: <%= author.age %></h5>
 <%= link_to author.name, "/authors/#{author.id}" %>
 <%= link_to "Edit: #{author.name}", "/authors/#{author.id}/edit" %>
 <%= button_to "Delete: #{author.name}", "/authors/#{author.id}", method: :delete %>
+</div>
 <% end %>
 
-<%= link_to 'Create a new author', '/authors/new' %>
+<span class="badge badge-pill badge-secondary">Secondary</span>
+<a href="#" class="badge badge-secondary">Secondary</a>
+<a href="#" class="badge badge-secondary"><%= link_to 'Create a new author', '/authors/new' %></a>
