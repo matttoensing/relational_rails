@@ -5,7 +5,7 @@ RSpec.describe "user can edit museum information" do
     dnhm = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25)
 
     visit "/museums/#{dnhm.id}"
-    click_on "Edit Museum"
+    click_link "Edit: #{dnhm.name}"
 
     expect(current_path).to eq("/museums/#{dnhm.id}/edit")
   end
