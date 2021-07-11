@@ -69,4 +69,28 @@ RSpec.describe 'museum exhibits index' do
 
     expect(current_path).to eq("/exhibits/#{exhibit1.id}/edit")
   end
+
+  it 'user sees form/button that allows to input number' do
+    museum = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25)
+    exhibit1 = museum.exhibits.create!(title: "Toensing Exhibit", person_limit: 30, photos: true, flash: true)
+    exhibit2 = museum.exhibits.create!(title: "Alwafai Exhibit", person_limit: 40, photos: true, flash: true)
+    exhibit3 = museum.exhibits.create!(title: "Jones Exhibit", person_limit: 80, photos: true, flash: true)
+
+    visit "museums/#{museum.id}/exhibits"
+
+    expect(page).to have_button("Submit")
+  end
+
+  it 'user enters number and filters exhibits by person limit' do
+    museum = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25)
+    exhibit1 = museum.exhibits.create!(title: "Toensing Exhibit", person_limit: 30, photos: true, flash: true)
+    exhibit2 = museum.exhibits.create!(title: "Alwafai Exhibit", person_limit: 40, photos: true, flash: true)
+    exhibit3 = museum.exhibits.create!(title: "Jones Exhibit", person_limit: 80, photos: true, flash: true)
+
+    visit "museums/#{museum.id}/exhibits"
+    fill_in "Filter by Person Limit", with: "35"
+    click_on("Submit")
+
+    expect(page).to_not have_content("Toensing Exhibit")
+  end
 end
