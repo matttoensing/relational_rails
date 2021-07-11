@@ -29,6 +29,12 @@ class LibrariesController < ApplicationController
     redirect_to "/libraries/#{library.id}"
   end
 
+  def delete
+    library = Library.find(params[:id])
+    library.destroy
+    redirect_to "/libraries"
+  end
+
   private
 
   def library_params
