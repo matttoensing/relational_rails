@@ -7,6 +7,11 @@ class LibraryMembersController < ApplicationController
       @library = Library.find(params[:library_id])
       @members = @library.members
     end
+
+    if params.has_key?(:age)
+      @library = Library.find(params[:library_id])
+      @members = @library.members.members_over_age(params[:age].to_i)
+    end
   end
 
   def new
