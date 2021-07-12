@@ -17,5 +17,19 @@ RSpec.describe Member do
         expect(Member.sorts_first_name_alphabetically).to eq(expected)
       end
     end
+
+    describe '#members_over_age' do
+      it 'can show only members over a certain age' do
+        library = Library.create!(name: "Memphis Public Library", public: true,zip_code: 12345)
+        member1 = library.members.create!(first_name: "Brett",last_name: "Jones", age: 27, late_fees: true)
+        member2 = library.members.create!(first_name: "Matt",last_name: "Toensing", age: 33, late_fees: true)
+        member3 = library.members.create!(first_name: "Ezze",last_name: "Alwafai", age: 35, late_fees: true)
+
+        expected = [member2, member3]
+
+        expect(Member.members_over_age(32)).to eq(expected)
+        expect(Member.members_over_age(34)).to eq([member3])
+      end
+    end
   end
 end
