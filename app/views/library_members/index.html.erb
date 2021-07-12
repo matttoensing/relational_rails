@@ -15,9 +15,8 @@
 <br>
 <br>
 <%= link_to "Sort by First Name", "/libraries/#{@library.id}/members?sort=fname" %>
-<br>
-<br>
-<%= form_tag("/libraries/#{@library.id}/members", :method => :get) do %>
+
+<%= form_tag("/libraries/#{@library.id}/members?age=num", :method => :get) do %>
 <form class="form-inline">
   <div class="form-group mb-2">
     <label for="filter_pages" class="sr-only"><%= label_tag  "page_id", "Filter Members by Age" %></label>
@@ -26,6 +25,6 @@
     <label for="filter_pages" class="sr-only"></label>
     <%= text_field_tag(:age) %> <br>
   </div>
-    <%= button_to "Filter", "/libraries/#{@library.id}/members?pages=num" %>
+    <%= submit_tag("Filter") %>
 </form>
 <% end %>
