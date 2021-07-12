@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   def index
-    @members = Member.all
+    @members = Member.show_true_late_fees
   end
 
   def show

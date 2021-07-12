@@ -32,5 +32,18 @@ RSpec.describe Book do
         expect(Book.books_over_page_length(450)).to eq([book1])
       end
     end
+
+    describe '#show_true_awards' do
+      it 'will only show books with awards' do
+        author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
+        book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: false)
+        book2 = author.books.create!(title: "Wild wild west", pages: 400, awards: true)
+        book3 = author.books.create!(title: "Memphis vibes", pages: 200, awards: true)
+
+        expected = [book2, book3]
+
+        expect(Book.show_true_awards).to eq(expected)
+      end
+    end
   end
 end

@@ -1,20 +1,22 @@
 <h1>Library Members Page</h1>
 
 <% @members.each do |member| %>
-<h2><%= member.first_name %></h2>
-<h2><%= member.last_name %></h2>
-<p><%= member.age %></p>
+<h2><%= member.first_name %> <%= member.last_name %></h2>
+<p>Age: <%= member.age %></p>
 <p>Late Fees: <%= member.late_fees %></p>
 <p>
 <%= link_to "Edit: #{member.first_name}", "/members/#{member.id}/edit" %>
 </p>
 <%= link_to "Delete: #{member.first_name}", "/members/#{member.id}", method: :delete %>
 <% end %>
-
+<br>
+<br>
 <%= link_to "Create New Member", "/libraries/#{@library.id}/members/new" %>
-
+<br>
+<br>
 <%= link_to "Sort by First Name", "/libraries/#{@library.id}/members?sort=fname" %>
-
+<br>
+<br>
 <%= form_tag("/libraries/#{@library.id}/members", :method => :get) do %>
 <form class="form-inline">
   <div class="form-group mb-2">
