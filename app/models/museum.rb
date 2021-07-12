@@ -1,5 +1,4 @@
 class Museum < ApplicationRecord
-  validates_presence_of :name, :free, :entry_fee
   has_many :exhibits, :dependent => :destroy
 
   def self.order_by_creation_time
