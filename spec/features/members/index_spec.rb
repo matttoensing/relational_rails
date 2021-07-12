@@ -60,4 +60,17 @@ RSpec.describe 'Members index page' do
     expect(current_path).to eq("/members")
     expect(page).to_not have_content("Brett")
   end
+
+  it 'it only shows members with late fees' do
+    library = Library.create!(name: "Memphis Public Library", public: true,zip_code: 12345)
+    member1 = library.members.create!(first_name: "Brett",last_name: "Jones", age: 27, late_fees: false)
+    member2 = library.members.create!(first_name: "Matt",last_name: "Toensing", age: 33, late_fees: true)
+    member3 = library.members.create!(first_name: "Ezze",last_name: "Alwafai", age: 35, late_fees: true)
+
+    visit '/members'
+
+    expect(page).to_not have_content("Brett")
+    expect(page).to have_content("Matt")
+    expect(page).to have_content("Ezze")
+  end
 end

@@ -43,4 +43,17 @@ RSpec.describe 'Books index page' do
 
     expect(current_path).to eq("/books/#{book1.id}")
   end
+
+  it 'it will only show books with awards' do
+    author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
+    book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: false)
+    book2 = author.books.create!(title: "Wild wild west", pages: 400, awards: true)
+    book3 = author.books.create!(title: "Memphis vibes", pages: 400, awards: true)
+
+    visit '/books'
+
+    expect(page).to_not have_content(book1.title)
+    expect(page).to have_content(book2.title)
+    expect(page).to have_content(book3.title)
+  end
 end

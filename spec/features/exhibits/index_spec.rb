@@ -28,4 +28,17 @@ RSpec.describe 'Exhibit index page' do
 
     expect(current_path).to eq("/exhibits/#{exhibit1.id}/edit")
   end
+
+  it 'will only show exhibits with photos' do
+    museum = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25)
+    exhibit1 = museum.exhibits.create!(title: "Toensing Exhibit", person_limit: 30, photos: false, flash: true)
+    exhibit2 = museum.exhibits.create!(title: "Alwafai Exhibit", person_limit: 40, photos: false, flash: true)
+    exhibit3 = museum.exhibits.create!(title: "Jones Exhibit", person_limit: 80, photos: true, flash: true)
+
+    visit '/exhibits'
+
+    expect(page).to_not have_content("Toensing Exhibit")
+    expect(page).to_not have_content("Alwafai Exhibit")
+    expect(page).to have_content("Jones Exhibit")
+  end
 end
