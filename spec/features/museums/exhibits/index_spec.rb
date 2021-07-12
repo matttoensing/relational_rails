@@ -78,7 +78,7 @@ RSpec.describe 'museum exhibits index' do
 
     visit "museums/#{museum.id}/exhibits"
 
-    expect(page).to have_button("Submit")
+    expect(page).to have_button("Filter")
   end
 
   it 'user enters number and filters exhibits by person limit' do
@@ -88,8 +88,8 @@ RSpec.describe 'museum exhibits index' do
     exhibit3 = museum.exhibits.create!(title: "Jones Exhibit", person_limit: 80, photos: true, flash: true)
 
     visit "museums/#{museum.id}/exhibits"
-    fill_in "Filter by Person Limit", with: "35"
-    click_on("Submit")
+    fill_in :person_limit, with: 35
+    click_on("Filter")
 
     expect(page).to_not have_content("Toensing Exhibit")
   end
