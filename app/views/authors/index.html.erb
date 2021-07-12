@@ -1,10 +1,9 @@
 <h1>Authors</h1><br>
 
-<% @authors.each do |author| %>
 <table class="table table-striped table-dark">
+  <% @authors.each do |author| %>
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Author Name</th>
       <th scope="col">Published</th>
       <th scope="col">Author Age</th>
@@ -15,7 +14,6 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">1</th>
         <td><%= author.name %></td>
         <td><%= author.published %></td>
         <td><%= author.age %></td>
@@ -23,8 +21,9 @@
         <td><%= link_to "Edit: #{author.name}", "/authors/#{author.id}/edit", class: "btn btn-success" %></td>
         <td><%= button_to "Delete: #{author.name}", "/authors/#{author.id}", method: :delete, class: "btn btn-danger" %></td>
       </tr>
+      <% end %>
     </tbody>
 </table>
-<% end %>
+
 
 <%= link_to 'Create a new author', '/authors/new', class: "btn btn-primary"  %>
