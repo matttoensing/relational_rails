@@ -25,7 +25,7 @@
   </div>
   <div class="form-group mx-sm-3 mb-2">
     <label for="filter_pages" class="sr-only"></label>
-    <%= text_field_tag(:page) %> <br>
+    <%= number_field_tag 'page number' %> <br>
   </div>
     <%= button_to "Filter", "/authors/#{@author.id}/books?pages=num" %>
 </form>
