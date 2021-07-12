@@ -1,9 +1,8 @@
 <h1>Members Page</h1>
 
 <% @members.each do |member| %>
-<h2><%= member.first_name %></h2>
-<h2><%= member.last_name %></h2>
-<p><%= member.age %></p>
+<h2><%= member.first_name %> <%= member.last_name %></h2>
+<p>Age: <%= member.age %></p>
 <p>Late Fees: <%= member.late_fees %></p>
 <p>
 <%= link_to "Edit: #{member.first_name}", "/members/#{member.id}/edit" %>
