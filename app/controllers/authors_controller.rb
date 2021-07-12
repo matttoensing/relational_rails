@@ -12,7 +12,6 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    require "pry"; binding.pry
     author = Author.new(author_params)
 
     author.save

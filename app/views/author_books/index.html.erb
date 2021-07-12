@@ -18,15 +18,15 @@
 <br>
 <br>
 
-<%= form_tag("/authors/#{@author.id}/books", :method => :get) do %>
+<%= form_tag("/authors/#{@author.id}/books?pages=num", method: :get) do %>
 <form class="form-inline">
   <div class="form-group mb-2">
-    <label for="filter_pages" class="sr-only"><%= label_tag  "page_id", "Filter Books by Number of Pages" %></label>
+    <label for="filter_pages" class="sr-only"><%= label_tag(:q, "Filter Books by Number of Pages") %></label>
   </div>
   <div class="form-group mx-sm-3 mb-2">
     <label for="filter_pages" class="sr-only"></label>
-    <%= number_field_tag 'page number' %> <br>
+    <%= number_field_tag(:pages, params[:pages]) %> <br>
   </div>
-    <%= button_to "Filter", "/authors/#{@author.id}/books?pages=num" %>
+    <%= submit_tag("Filter") %>
 </form>
 <% end %>

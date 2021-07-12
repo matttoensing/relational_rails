@@ -8,9 +8,9 @@ class AuthorBooksController < ApplicationController
       @books = @author.books
     end
 
-    if params.has_key?(:page)
+    if params.has_key?('pages')
       @author = Author.find(params[:author_id])
-      @books = @author.books.books_over_page_length(params[:page].to_i)
+      @books = @author.books.books_over_page_length(params[:pages].to_i)
     end
   end
 
