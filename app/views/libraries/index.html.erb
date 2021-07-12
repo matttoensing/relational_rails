@@ -1,8 +1,8 @@
 <h1>Libraries</h1>
 <% @libraries.each do |library| %>
   <h3><%= library.name %></h3>
-  <p><%= library.public %></p>
-  <p><%= library.zip_code %></p>
+  <p>Public: <%= library.public %></p>
+  <p>Zip code: <%= library.zip_code %></p>
   <p><%= link_to library.name, "/libraries/#{library.id}" %></p>
   <p>
     <%= link_to "Edit: #{library.name}", "/libraries/#{library.id}/edit" %>
