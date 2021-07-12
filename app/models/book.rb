@@ -8,4 +8,8 @@ class Book < ApplicationRecord
   def self.books_over_page_length(num_of_pages)
     Book.where("pages > ?", num_of_pages)
   end
+
+  def self.show_true_awards
+    Book.where("awards = ?", true)
+  end
 end
