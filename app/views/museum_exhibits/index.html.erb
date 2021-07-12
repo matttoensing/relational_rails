@@ -15,15 +15,15 @@
 <%= link_to "Sort by Title", "/museums/#{@museum.id}/exhibits?sort=title" %>
 <br>
 <br>
-<%= form_tag("/museums/#{@museum.id}/exhibits?filter=plimit", :method => :get) do %>
+<%= form_tag("/museums/#{@museum.id}/exhibits?person_limit=num", :method => :get) do %>
 <form class="form-inline">
   <div class="form-group mb-2">
     <label for="filter_pages" class="sr-only"><%= label_tag(:q, "Filter Exhibits by Person Limit") %></label>
   </div>
   <div class="form-group mx-sm-3 mb-2">
     <label for="filter_pages" class="sr-only"></label>
-    <%= number_field_tag(:filter) %> <br>
+    <%= number_field_tag(:person_limit, params[:filter]) %> <br>
   </div>
-    <%= button_to("Filter") %>
+    <%= submit_tag("Filter") %>
 </form>
 <% end %>

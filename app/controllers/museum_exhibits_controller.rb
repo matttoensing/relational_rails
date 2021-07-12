@@ -7,9 +7,9 @@ class MuseumExhibitsController < ApplicationController
       @museum = Museum.find(params[:museum_id])
       @exhibits = @museum.exhibits
     end
-    if params.has_key?(:filter)
+    if params.has_key?(:person_limit)
       @museum = Museum.find(params[:museum_id])
-      @exhibits = @museum.exhibits.filter_over_person_limit(params[:filter].to_i)
+      @exhibits = @museum.exhibits.filter_over_person_limit(params[:person_limit].to_i)
     end
   end
 
