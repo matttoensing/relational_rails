@@ -1,6 +1,6 @@
 class ExhibitsController < ApplicationController
   def index
-    @exhibits = Exhibit.all
+    @exhibits = Exhibit.show_true_photos
   end
 
   def show
