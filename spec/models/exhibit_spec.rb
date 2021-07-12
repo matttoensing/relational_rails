@@ -31,5 +31,18 @@ RSpec.describe Exhibit do
         expect(Exhibit.filter_over_person_limit(50)).to eq([exhibit3])
       end
     end
+
+    describe '#show_true_photos' do
+      it 'will only show exhibits with photos' do
+        museum = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25)
+        exhibit1 = museum.exhibits.create!(title: "Toensing Exhibit", person_limit: 30, photos: false, flash: true)
+        exhibit2 = museum.exhibits.create!(title: "Alwafai Exhibit", person_limit: 40, photos: false, flash: true)
+        exhibit3 = museum.exhibits.create!(title: "Jones Exhibit", person_limit: 80, photos: true, flash: true)
+
+        expected = [exhibit3]
+
+        expect(Exhibit.show_true_photos).to eq(expected)
+      end
+    end
   end
 end
