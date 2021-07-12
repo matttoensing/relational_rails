@@ -1,28 +1,11 @@
-<h1>Create New Member</h1>
-
-<%= form_with url: "/libraries/#{@library.id}/members", method: :post, local: true do |f| %>
-<p>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-</p>
-
-<p>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-</p>
-
-<p>
-  <%= f.label :age %>
-  <%= f.text_field :age %>
-</p>
-
-<p>
-  <%= f.label :late_fees %>
-  <%= f.text_field :late_fees %>
-</p>
-
-<div class="actions">
-    <%= f.submit "Create Member", class: 'btn btn-secondary' %>
-</div>
-
+<%= form_tag("/libraries/#{@library.id}/members", method: "post") do %>
+<%= label_tag  "fname_id", "First Name" %>
+<%= text_field_tag(:first_name) %> <br>
+<%= label_tag  "lname_id", "Last Name" %>
+<%= text_field_tag(:last_name) %> <br>
+<%= label_tag  "age_id", "Age" %>
+<%= text_field_tag(:age) %> <br>
+<%= label_tag  "late_fees_id", "Late Fees" %>
+<%= check_box_tag(:late_fees) %> <br>
+<%= submit_tag("Submit") %>
 <% end %>
