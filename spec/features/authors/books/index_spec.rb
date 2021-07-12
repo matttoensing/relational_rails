@@ -90,7 +90,7 @@ RSpec.describe 'author books index' do
       book3 = author.books.create!(title: "Jungle Beats", pages: 247, awards: true)
 
       visit "authors/#{author.id}/books"
-      fill_in "page", with: 200
+      fill_in "page", with: "200"
 
       click_on "Filter"
 
