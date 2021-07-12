@@ -78,7 +78,7 @@ RSpec.describe 'author books index' do
 
       visit "authors/#{author.id}/books"
 
-      fill_in "page", with: 200
+      fill_in "pages", with: 200
 
       expect(page).to have_button("Filter")
     end
