@@ -83,4 +83,33 @@ RSpec.describe 'libraries member index' do
     expect(current_path).to eq("/members")
     expect(page).to_not have_content("Brett")
   end
+
+  describe 'user can filter members by age' do
+    it 'has a form and button to submit a member' do
+      library = Library.create!(name: "Memphis Public Library", public: true,zip_code: 12345)
+      member1 = library.members.create!(first_name: "Brett",last_name: "Jones", age: 27, late_fees: true)
+      member2 = library.members.create!(first_name: "Matt",last_name: "Toensing", age: 33, late_fees: true)
+      member3 = library.members.create!(first_name: "Ezze",last_name: "Alwafai", age: 35, late_fees: true)
+
+      visit "/libraries/#{library.id}/members"
+
+      expect(page).to have_button("Filter")
+    end
+
+    it 'can submit a number to filter members by age' do
+      library = Library.create!(name: "Memphis Public Library", public: true,zip_code: 12345)
+      member1 = library.members.create!(first_name: "Brett",last_name: "Jones", age: 27, late_fees: true)
+      member2 = library.members.create!(first_name: "Matt",last_name: "Toensing", age: 33, late_fees: true)
+      member3 = library.members.create!(first_name: "Ezze",last_name: "Alwafai", age: 35, late_fees: true)
+
+      visit "/libraries/#{library.id}/members"
+
+      fill_in "age", with: 32
+
+      click_on "Filter"
+
+      expect(current_path).to eq("/libraries/#{library.id}/members")
+      expect(page).to_not have_content("Brett")
+    end
+  end
 end
