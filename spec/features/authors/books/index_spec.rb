@@ -90,12 +90,13 @@ RSpec.describe 'author books index' do
       book3 = author.books.create!(title: "Jungle Beats", pages: 247, awards: true)
 
       visit "authors/#{author.id}/books"
-      fill_in "page", with: "200"
+      fill_in :pages, with: 200
 
       click_on "Filter"
 
       expect(current_path).to eq("/authors/#{author.id}/books")
       expect(page).to_not have_content("Wild wild west")
+      expect(page).to have_button("Filter")
     end
   end
 end

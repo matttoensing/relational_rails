@@ -10,8 +10,10 @@
       <p>
         Books: <%= @author.number_of_books %>
       </p>
-    <a href="#" class="btn btn-primary"><%= link_to "Book Index", "/authors/#{@author.id}/books" %></a>
-    <a href="#" class="btn btn-primary"><%= link_to "Update Author", "/authors/#{@author.id}/edit" %></a>
-    <a href="#" class="btn"><%= button_to "Delete: #{@author.name}", "/authors/#{@author.id}", method: :delete %></a>
+    <%= link_to "Book Index", "/authors/#{@author.id}/books", class: "btn btn-primary" %>
+    <%= link_to "Update Author", "/authors/#{@author.id}/edit", class: "btn btn-success" %>
+    <br>
+    <br>
+    <%= button_to "Delete: #{@author.name}", "/authors/#{@author.id}", method: :delete, class: "btn btn-danger" %>
   </div>
 </div>
