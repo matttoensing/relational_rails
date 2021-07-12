@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Author do
-  describe 'validations' do
-    it {should validate_presence_of(:name)}
-    it {should validate_presence_of(:published)}
-    it {should validate_presence_of(:age)}
-  end
-
   describe 'associations' do
     it {should have_many :books}
   end
@@ -25,22 +19,6 @@ RSpec.describe Author do
       end
     end
 
-    describe '#filter_out_false_records'
-      it 'only shows records that are true' do
-        Author.destroy_all
-        Book.destroy_all
-
-        author1 = Author.create!(name: 'Hunter S Thompson', published: false, age: 63)
-        author2 = Author.create!(name: 'Malcom Gladwell', published: true, age: 57)
-        author3 = Author.create!(name: 'Michael Lewis', published: false, age: 48)
-        author4 = Author.create!(name: 'Edward Abbey', published: true, age: 48)
-
-        expected = [author2, author4]
-
-        expect(Author.filter_out_false_records).to eq(expected)
-      end
-    end
-
     describe 'instance methods' do
       describe '#number_of_books' do
         it 'count the number of books for a given author' do
@@ -56,3 +34,4 @@ RSpec.describe Author do
       end
     end
   end
+end

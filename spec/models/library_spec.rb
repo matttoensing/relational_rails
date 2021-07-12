@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Library do
-  describe 'validations' do
-    it {should validate_presence_of(:name)}
-    it {should validate_presence_of(:public)}
-    it {should validate_presence_of(:zip_code)}
-  end
-
   describe 'associations' do
     it {should have_many :members}
   end
@@ -29,7 +23,7 @@ RSpec.describe Library do
       describe '#number_of_members' do
         it 'count the number of members for a given library' do
           Library.destroy_all
-          
+
           library = Library.create!(name: 'West Public Library', public: true, zip_code: 12345)
           member1 = library.members.create!(first_name: "Brett",last_name: "Jones", age: 27, late_fees: true)
           member2 = library.members.create!(first_name: "Matt",last_name: "Toensing", age: 33, late_fees: true)
