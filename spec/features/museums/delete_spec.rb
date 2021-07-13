@@ -7,8 +7,8 @@ RSpec.describe 'delete button' do
 
     visit '/museums'
 
-    expect(page).to have_button("Delete: #{museum1.name}")
-    expect(page).to have_button("Delete: #{museum2.name}")
+    expect(page).to have_link("Delete: #{museum1.name}")
+    expect(page).to have_link("Delete: #{museum2.name}")
   end
 
   it 'user can click on button to delete museum' do
@@ -16,7 +16,7 @@ RSpec.describe 'delete button' do
     museum2 = Museum.create!(name: 'Laramie Natural History Museum', free: true, entry_fee: 25)
 
     visit '/museums'
-    click_on "Delete: #{museum1.name}"
+    click_link "Delete: #{museum1.name}"
 
     expect(page).to_not have_content('WW2 Airplane History Museum')
     expect(page).to have_content('Laramie Natural History Museum')
@@ -27,7 +27,7 @@ RSpec.describe 'delete button' do
 
     visit "/museums/#{museum.id}"
 
-    expect(page).to have_button("Delete: #{museum.name}")
+    expect(page).to have_link("Delete: #{museum.name}")
   end
 
   it 'user can click on button to delete museum' do
