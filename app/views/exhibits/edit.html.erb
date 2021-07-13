@@ -3,22 +3,22 @@
 <%= form_with url: "/exhibits/#{@exhibit.id}", method: :patch, local: true do |form|  %>
 <p>
 <%= form.label :title %>
-<%= form.text_field :title %>
+<%= form.text_field :title, value: "#{@exhibit.title}" %>
 </p>
 
 <p>
   <%= form.label :person_limit %>
-  <%= form.text_field :person_limit %>
+  <%= form.text_field :person_limit, value: "#{@exhibit.person_limit}" %>
 </p>
 
 <p>
   <%= form.label :photos %>
-  <%= form.text_field :photos %>
+  <%= form.text_field :photos, value: "#{@exhibit.photos}" %>
 </p>
 
 <p>
   <%= form.label :flash %>
-  <%= form.text_field :flash %>
+  <%= form.text_field :flash, value: "#{@exhibit.flash}" %>
 </p>
 
 <div class="actions">

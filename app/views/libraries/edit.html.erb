@@ -4,17 +4,17 @@
 
 <p>
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, value: "#{@library.name}" %>
 </p>
 
 <p>
   <%= form.label :public %>
-  <%= form.text_field :public %>
+  <%= form.text_field :public, value: "#{@library.public}" %>
 </p>
 
 <p>
   <%= form.label :zip_code %>
-  <%= form.text_field :zip_code %>
+  <%= form.text_field :zip_code, value: "#{@library.zip_code}" %>
 </p>
 
 <div class="actions">

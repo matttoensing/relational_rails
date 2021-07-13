@@ -4,17 +4,17 @@
 
   <p>
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, value: "#{@author.name}" %>
   </p>
 
   <p>
     <%= form.label :published %>
-    <%= form.text_field :published %>
+    <%= form.text_field :published, value: "#{@author.published}" %>
   </p>
 
   <p>
     <%= form.label :age %>
-    <%= form.text_field :age %>
+    <%= form.text_field :age, value: "#{@author.age}" %>
   </p>
 
   <div class="actions">

@@ -3,17 +3,17 @@
 <%= form_with url: "/museums/#{@museum.id}", method: 'patch', local: true do |form| %>
   <p>
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, value: "#{@museum.name}" %>
   </p>
 
   <p>
     <%= form.label :free %>
-    <%= form.text_field :free %>
+    <%= form.text_field :free, value: "#{@museum.free}" %>
   </p>
 
   <p>
     <%= form.label :entry_fee %>
-    <%= form.text_field :entry_fee %>
+    <%= form.text_field :entry_fee, value: "#{@museum.entry_fee}" %>
   </p>
 
   <div class="actions">
