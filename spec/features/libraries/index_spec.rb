@@ -49,5 +49,31 @@ RSpec.describe 'user sees all libraries' do
         expect(current_path).to eq("/libraries/#{library1.id}/edit")
       end
     end
+
+    describe 'page has a link to filter libraries by exact match' do
+      it 'user sees a search button' do
+        library1 = Library.create!(name: 'Denver Public Library', public: true, zip_code: 12345)
+        library2 = Library.create!(name: 'Boise Public Library', public: true, zip_code: 54321)
+        library3 = Library.create!(name: 'Boulder Public Library', public: true, zip_code: 73613)
+
+        visit '/libraries'
+
+        expect(page).to have_button("Submit")
+      end
+
+      it 'user clicks on the search button to filter results' do
+        library1 = Library.create!(name: 'Denver Public Library', public: true, zip_code: 12345)
+        library2 = Library.create!(name: 'Boise Public Library', public: true, zip_code: 54321)
+        library3 = Library.create!(name: 'Boulder Public Library', public: true, zip_code: 73613)
+
+        visit '/libraries'
+
+        fill_in "search", with: "Denver Public Library"
+        click_on("Submit")
+
+        expect(page).to_not have_content('Boise Public Library')
+        expect(page).to_not have_content('Boulder Public Library')
+      end
+    end
   end
 end
