@@ -1,22 +1,35 @@
-Week 1 Paired Project 
+#Week 1 Paired Project 
 
-Relational Rails ReadME
+##Relational Rails ReadME
 
-Learning Goals
+###Learning Goals
 - Design a one to many relationship using a schema designer
 - Write migrations to create tables with columns of varying data types and foreign keys.
 - Use Rails to create web pages that allow users to CRUD resources
 - Create instance and class methods on a Rails model that use ActiveRecord methods and helpers
 - Write model and feature tests that fully cover data logic and user behavior
 
-Databases and ActiveRecord
+###Collaboration
+- As a group took a Kanban style approach to maximize efficiency
+- Used a custom pull request template
+- Beginning of work sessions group members shared findings and ideas
 
+###Project Overview
+- Ultilized database schema designer to set up migrations
+- Properly used Model View Controller navigation
+- Used Test Driven Development to guide the project
+- Achieved 100% coverage in model and feature testing (125 tests)
+- Implemented ActiveRecord queries primarilly for sort and filter functions
+- Implemented Bootstrap
+
+###Databases and ActiveRecord
+- Postgres
+- Postico
+- DB designer
 
 <img width="607" alt="Screen Shot 2021-07-14 at 1 22 06 PM" src="https://user-images.githubusercontent.com/80132364/125687926-baf22e51-248c-4ad8-b3bb-c951636e27f2.png">
 
-- Postgres
-
-TDD
+###TDD
 - RSpec
 - Capybara
 - Launchy
@@ -25,7 +38,7 @@ TDD
 - Pry 
 - Should-Matchers
 
-System Requirements
+###System Requirements
 - Rails version 5.2.5
 - Ruby 2.7.2
 - Postgres
@@ -368,24 +381,4 @@ When I type in a keyword that is an partial match of one or more of my records a
 Then I only see records that are an partial match returned on the page
 
 This functionality should be separate from your exact match functionality.
-```
-* Ruby version
-  2.7.2
-* System dependencies
-  Ruby on Rails
-  Also Gems 
-  [link](https://r-docs.synapse.org/articles/systemDependencies.html)
-  
-* Configuration
-  
-* Database creation
-
-* Database initialization
-
-
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+``` 
