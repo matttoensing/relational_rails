@@ -23,6 +23,7 @@ TDD
 - Orderly
 - SimpleCov
 - Pry 
+- Should-Matchers
 
 System Requirements
 - Rails version 5.2.5
