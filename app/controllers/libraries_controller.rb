@@ -1,6 +1,10 @@
 class LibrariesController < ApplicationController
   def index
-    @libraries = Library.all.order_by_creation_time
+    if params[:search]
+      @libraries = Library.filter_name_by_exact_match(params[:search])
+    else
+      @libraries = Library.all.order_by_creation_time
+    end
   end
 
   def show

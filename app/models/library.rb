@@ -8,4 +8,8 @@ class Library < ApplicationRecord
   def number_of_members
     self.members.count
   end
+
+  def self.filter_name_by_exact_match(search)
+    Library.where("name LIKE ?", "%#{search}%")
+  end
 end

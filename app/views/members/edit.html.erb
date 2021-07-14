@@ -3,16 +3,16 @@
 <%= form_with url: "/members/#{@member.id}", method: :patch, local: true do |form|  %>
 <p>
 <%= form.label :first_name %>
-<%= form.text_field :first_name %>
+<%= form.text_field :first_name, value: "#{@member.first_name}" %>
 </p>
 <p>
 <%= form.label :last_name %>
-<%= form.text_field :last_name %>
+<%= form.text_field :last_name, value: "#{@member.last_name}" %>
 </p>
 
 <p>
   <%= form.label :age %>
-  <%= form.text_field :age %>
+  <%= form.text_field :age, value: "#{@member.age}" %>
 </p>
 
 <div class="custom-control custom-checkbox">

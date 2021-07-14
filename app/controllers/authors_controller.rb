@@ -1,6 +1,10 @@
 class AuthorsController < ApplicationController
   def index
-    @authors = Author.all.order_by_creation_time
+    if params.has_key?(:sort)
+      @authors = Author.all.order_by_number_of_books
+    else
+      @authors = Author.all.order_by_creation_time
+    end
   end
 
   def show

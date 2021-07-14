@@ -3,17 +3,17 @@
 <%= form_with url: "/books/#{@book.id}", method: :patch, local: true do |form|  %>
 <p>
 <%= form.label :title %>
-<%= form.text_field :title %>
+<%= form.text_field :title, value: "#{@book.title}" %>
 </p>
 
 <p>
   <%= form.label :pages %>
-  <%= form.text_field :pages %>
+  <%= form.text_field :pages, value: "#{@book.pages}" %>
 </p>
 
 <p>
   <%= form.label :awards %>
-  <%= form.text_field :awards %>
+  <%= form.text_field :awards, value: "#{@book.awards}" %>
 </p>
 
 <div class="actions">
