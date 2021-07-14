@@ -21,7 +21,7 @@ RSpec.describe 'user creates a new book from the authors' do
     fill_in "Awards", with: true
 
     click_on "Create Book"
-    
+
     expect(current_path).to eq("/authors/#{author.id}/books")
     expect(page).to have_content("Book of Rails")
     expect(page).to have_content("500")
