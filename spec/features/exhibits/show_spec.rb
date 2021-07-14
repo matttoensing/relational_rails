@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Exhibit index page' do
   it 'shows all exhibits' do
     museum = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25)
-    exhibit = museum.exhibits.create!(title: "The Toensing Exhibit", person_limit: 30, photos: true, flash: true)
+    exhibit = museum.exhibits.create!(title: "The Ancient Egyptian Exhibit", person_limit: 30, photos: true, flash: true)
 
     visit "/exhibits/#{exhibit.id}"
 

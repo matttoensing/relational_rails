@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Books index page' do
   it 'shows all the books' do
-    author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
-    book = author.books.create!(title: "Game of Drones", pages: 500, awards: true)
+    author = Author.create!(name: "Edward Abbey", published: true, age: 35)
+    book = author.books.create!(title: "Desert Solitare", pages: 500, awards: true)
 
     visit "/books/#{book.id}"
 

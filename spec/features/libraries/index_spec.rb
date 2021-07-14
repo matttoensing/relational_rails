@@ -50,7 +50,7 @@ RSpec.describe 'user sees all libraries' do
       end
     end
 
-    describe 'page has a link to filter libraries by exact match' do
+    describe 'page has a link to filter libraries by exact/partial match' do
       it 'user sees a search button' do
         library1 = Library.create!(name: 'Denver Public Library', public: true, zip_code: 12345)
         library2 = Library.create!(name: 'Boise Public Library', public: true, zip_code: 54321)

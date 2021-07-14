@@ -9,7 +9,7 @@ RSpec.describe Book do
   describe 'class methods' do
     describe '#sorts_title_alphabetically' do
       it 'sort by title' do
-        author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
+        author = Author.create!(name: "Edward Abbey", published: true, age: 35)
         book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: true)
         book2 = author.books.create!(title: "Wild wild west", pages: 400, awards: true)
         book3 = author.books.create!(title: "Memphis vibes", pages: 400, awards: true)
@@ -21,7 +21,7 @@ RSpec.describe Book do
 
     describe '#books_over_page_length' do
       it 'can show only books over a certain length' do
-        author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
+        author = Author.create!(name: "Edward Abbey", published: true, age: 35)
         book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: true)
         book2 = author.books.create!(title: "Wild wild west", pages: 400, awards: true)
         book3 = author.books.create!(title: "Memphis vibes", pages: 200, awards: true)
@@ -35,7 +35,7 @@ RSpec.describe Book do
 
     describe '#show_true_awards' do
       it 'will only show books with awards' do
-        author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
+        author = Author.create!(name: "Edward Abbey", published: true, age: 35)
         book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: false)
         book2 = author.books.create!(title: "Wild wild west", pages: 400, awards: true)
         book3 = author.books.create!(title: "Memphis vibes", pages: 200, awards: true)

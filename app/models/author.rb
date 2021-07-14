@@ -1,12 +1,12 @@
 class Author < ApplicationRecord
-  has_many :books, :dependent => :destroy
+  has_many :books, dependent: :destroy
 
   def self.order_by_creation_time
     order('created_at DESC')
   end
 
   def number_of_books
-    self.books.count
+    books.count
   end
 
   def self.order_by_number_of_books

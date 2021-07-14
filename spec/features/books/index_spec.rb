@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Books index page' do
   it 'shows all the books' do
-    author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
-    book1 = author.books.create!(title: "Game of Drones", pages: 500, awards: true)
-    book2 = author.books.create!(title: "Game of bones", pages: 400, awards: true)
+    author = Author.create!(name: "Edward Abbey", published: true, age: 35)
+    book1 = author.books.create!(title: "Desert Solitair", pages: 500, awards: true)
+    book2 = author.books.create!(title: "Journey Home", pages: 400, awards: true)
 
     visit '/books'
 
@@ -15,9 +15,9 @@ RSpec.describe 'Books index page' do
   end
 
   it 'can see a link to edit for each book' do
-    author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
-    book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: true)
-    book2 = author.books.create!(title: "Wild wild west", pages: 400, awards: true)
+    author = Author.create!(name: "Edward Abbey", published: true, age: 35)
+    book1 = author.books.create!(title: "Desert Solitaire", pages: 500, awards: true)
+    book2 = author.books.create!(title: "Journey Home", pages: 400, awards: true)
 
     visit '/books'
 
@@ -30,9 +30,9 @@ RSpec.describe 'Books index page' do
   end
 
   it 'can see a link to view a book' do
-    author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
-    book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: true)
-    book2 = author.books.create!(title: "Wild wild west", pages: 400, awards: true)
+    author = Author.create!(name: "Edward Abbey", published: true, age: 35)
+    book1 = author.books.create!(title: "Desert Solitaire", pages: 500, awards: true)
+    book2 = author.books.create!(title: "Journey Home", pages: 400, awards: true)
 
     visit '/books'
 
@@ -45,10 +45,10 @@ RSpec.describe 'Books index page' do
   end
 
   it 'it will only show books with awards' do
-    author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
-    book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: false)
-    book2 = author.books.create!(title: "Wild wild west", pages: 400, awards: true)
-    book3 = author.books.create!(title: "Memphis vibes", pages: 400, awards: true)
+    author = Author.create!(name: "Edward Abbey", published: true, age: 35)
+    book1 = author.books.create!(title: "Desert Solitaire", pages: 500, awards: false)
+    book2 = author.books.create!(title: "Journey Home", pages: 400, awards: true)
+    book3 = author.books.create!(title: "The Monkey Wrench Gang", pages: 400, awards: true)
 
     visit '/books'
 
