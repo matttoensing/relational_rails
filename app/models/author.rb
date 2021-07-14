@@ -10,6 +10,6 @@ class Author < ApplicationRecord
   end
 
   def self.order_by_number_of_books
-    Author.select('authors.id, COUNT(books.id) AS books_count').joins(:books).group('authors.id').order('books_count DESC')
+    Author.left_joins(:books).group(:id).order('COUNT(books.id) DESC')
   end
 end
