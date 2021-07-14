@@ -15,7 +15,7 @@ RSpec.describe 'museum exhibits index' do
     expect(page).to have_content(exhibit2.title)
   end
 
-  it 'user sees a link that takes them to member index' do
+  it 'user sees a link that takes them to exhibit index' do
     museum = Museum.create!(name: "Jones National Museum", free: true, entry_fee: 20)
 
     visit "/museums/#{museum.id}"
@@ -69,6 +69,21 @@ RSpec.describe 'museum exhibits index' do
 
     expect(current_path).to eq("/exhibits/#{exhibit1.id}/edit")
   end
+
+  it 'can see link and click delete' do
+    museum = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25)
+    exhibit = museum.exhibits.create!(title: "Art Exhibit", person_limit: 30, photos: true, flash: true)
+
+    visit "/museums/#{museum.id}/exhibits"
+
+    expect(page).to have_content("Delete: #{exhibit.title}")
+
+    click_link "Delete: #{exhibit.title}"
+
+    expect(current_path).to eq("/exhibits")
+    expect(page).to_not have_content("Art Exhibit")
+  end
+
 
   it 'user sees form/button that allows to input number' do
     museum = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25)
