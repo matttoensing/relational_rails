@@ -52,7 +52,7 @@ Then I see the name of each parent record in the system
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 2, Parent Show (x2)
 
@@ -63,7 +63,7 @@ Then I see the parent with that id including the parent's attributes:
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 3, Child Index (x2)
 
@@ -73,7 +73,7 @@ Then I see each Child in the system including the Child's attributes:
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 4, Child Show (x2)
 
@@ -83,7 +83,7 @@ Then I see the child with that id including the child's attributes:
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 5, Parent Children Index (x2)
 
@@ -93,7 +93,7 @@ Then I see each Child that is associated with that Parent with each Child's attr
 ```
 ActiveRecord
 ```
-[ ] done
+[x] done
 
 User Story 6, Parent Index sorted by Most Recently Created (x2)
 
@@ -104,7 +104,7 @@ And next to each of the records I see when it was created
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 7, Parent Child Count (x2)
 
@@ -114,7 +114,7 @@ I see a count of the number of children associated with this parent
 ```
 Usability
 ```
-[ ] done
+[x] done
 
 User Story 8, Child Index Link
 
@@ -125,7 +125,7 @@ Then I see a link at the top of the page that takes me to the Child Index
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 9, Parent Index Link
 
@@ -135,7 +135,7 @@ Then I see a link at the top of the page that takes me to the Parent Index
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 10, Parent Child Index Link
 
@@ -147,7 +147,7 @@ Iteration 2
 CRUD
 
 ```
-[ ] done
+[x] done
 
 User Story 11, Parent Creation (x2)
 
@@ -164,7 +164,7 @@ and I am redirected to the Parent Index page where I see the new Parent displaye
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 12, Parent Update (x2)
 
@@ -181,7 +181,7 @@ and I am redirected to the Parent's Show page where I see the parent's updated i
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 13, Parent Child Creation (x2)
 
@@ -198,7 +198,7 @@ and I am redirected to the Parent Childs Index page where I can see the new chil
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 14, Child Update (x2)
 
@@ -216,7 +216,7 @@ and I am redirected to the Child Show page where I see the Child's updated infor
 ActiveRecord
 
 ```
-[ ] done
+[x] done
 
 User Story 15, Child Index only shows `true` Records (x2)
 
@@ -226,7 +226,7 @@ Then I only see records where the boolean column is `true`
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 16, Sort Parent's Children in Alphabetical Order by name (x2)
 
@@ -240,7 +240,7 @@ I'm taken back to the Parent's children Index Page where I see all of the parent
 Usability
 
 ```
-[ ] done
+[x] done
 
 User Story 17, Parent Update From Parent Index Page (x2)
 
@@ -252,7 +252,7 @@ I should be taken to that parents edit page where I can update its information j
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 18, Child Update From Childs Index Page (x1)
 
@@ -266,7 +266,7 @@ Iteration 3
 CRUD
 
 ```
-[ ] done
+[x] done
 
 User Story 19, Parent Delete (x2)
 
@@ -280,7 +280,7 @@ and I am redirected to the parent index page where I no longer see this parent
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 20, Child Delete (x2)
 
@@ -295,7 +295,7 @@ and I am redirected to the child index page where I no longer see this child
 ActiveRecord
 
 ```
-[ ] done
+[x] done
 
 User Story 21, Display Records Over a Given Threshold (x2)
 
@@ -305,9 +305,10 @@ I see a form that allows me to input a number value
 When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
 Then I am brought back to the current index page with only the records that meet that threshold shown.
 ```
+Usability
 
 ```
-[ ] done
+[x] done
 
 User Story 22, Parent Delete From Parent Index Page (x1)
 
@@ -319,7 +320,7 @@ I am returned to the Parent Index Page where I no longer see that parent
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 23, Child Delete From Childs Index Page (x1)
 
@@ -332,7 +333,7 @@ I should be taken to the `child_table_name` index page where I no longer see tha
 Extensions
 
 ```
-[ ] done
+[x] done
 
 Sort Parents by Number of Children (x2)
 
@@ -344,7 +345,7 @@ I'm taken back to the Parent Index Page where I see all of the parents in order 
 ```
 
 ```
-[ ] done
+[x] done
 
 Search by name (exact match)
 
@@ -356,7 +357,7 @@ Then I only see records that are an exact match returned on the page
 ```
 
 ```
-[ ] done
+[x] done
 
 Search by name (partial match)
 
