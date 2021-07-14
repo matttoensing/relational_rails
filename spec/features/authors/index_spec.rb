@@ -68,10 +68,10 @@ RSpec.describe 'user sees all authors' do
 
       expect(page).to have_link("Sort Authors by Number of Books")
 
-      click_link "Sort Authors by Number of Books"
+      click_on("Sort Authors by Number of Books")
 
       expect(author2.name).to appear_before(author3.name)
-      expect(author3.name).to appear_before(author1.name)
+      expect('Michael Lewis').to appear_before('Hunter S Thompson')
     end
    end
 end
