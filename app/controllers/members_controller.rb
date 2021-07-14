@@ -22,7 +22,7 @@ class MembersController < ApplicationController
   def delete
     member = Member.find(params[:id])
     member.destroy
-    redirect_to "/members"
+    redirect_to '/members'
   end
 
   private

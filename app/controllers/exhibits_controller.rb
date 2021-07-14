@@ -24,7 +24,7 @@ class ExhibitsController < ApplicationController
     exhibit = Exhibit.find(params[:id])
     exhibit.destroy
 
-    redirect_to "/exhibits"
+    redirect_to '/exhibits'
   end
 
   private
