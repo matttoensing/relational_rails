@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Exhibit index page' do
   it 'shows all exhibits' do
     museum = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25)
-    exhibit1 = museum.exhibits.create!(title: "The Toensing Exhibit", person_limit: 30, photos: true, flash: true)
-    exhibit2 = museum.exhibits.create!(title: "The Alwafai Exhibit", person_limit: 40, photos: true, flash: true)
+    exhibit1 = museum.exhibits.create!(title: "The Ancient Egyptian Exhibit", person_limit: 30, photos: true, flash: true)
+    exhibit2 = museum.exhibits.create!(title: "The Human Anatomy Exhibit", person_limit: 40, photos: true, flash: true)
 
     visit '/exhibits'
 
@@ -16,8 +16,8 @@ RSpec.describe 'Exhibit index page' do
 
   it 'user sees a link to edit each exhibit' do
     museum = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25)
-    exhibit1 = museum.exhibits.create!(title: "Toensing Exhibit", person_limit: 30, photos: true, flash: true)
-    exhibit2 = museum.exhibits.create!(title: "Alwafai Exhibit", person_limit: 40, photos: true, flash: true)
+    exhibit1 = museum.exhibits.create!(title: "The Ancient Egyptian Exhibit", person_limit: 30, photos: true, flash: true)
+    exhibit2 = museum.exhibits.create!(title: "The Human Anatomy Exhibit", person_limit: 40, photos: true, flash: true)
 
     visit "/exhibits"
 
@@ -31,14 +31,14 @@ RSpec.describe 'Exhibit index page' do
 
   it 'will only show exhibits with photos' do
     museum = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25)
-    exhibit1 = museum.exhibits.create!(title: "Toensing Exhibit", person_limit: 30, photos: false, flash: true)
-    exhibit2 = museum.exhibits.create!(title: "Alwafai Exhibit", person_limit: 40, photos: false, flash: true)
-    exhibit3 = museum.exhibits.create!(title: "Jones Exhibit", person_limit: 80, photos: true, flash: true)
+    exhibit1 = museum.exhibits.create!(title: "The Ancient Egyptian Exhibit", person_limit: 30, photos: false, flash: true)
+    exhibit2 = museum.exhibits.create!(title: "The Human Anatomy Exhibit", person_limit: 40, photos: false, flash: true)
+    exhibit3 = museum.exhibits.create!(title: "Revolutionary War Exhibit", person_limit: 80, photos: true, flash: true)
 
     visit '/exhibits'
 
-    expect(page).to_not have_content("Toensing Exhibit")
-    expect(page).to_not have_content("Alwafai Exhibit")
-    expect(page).to have_content("Jones Exhibit")
+    expect(page).to_not have_content("The Ancient Egyptian Exhibit")
+    expect(page).to_not have_content("The Human Anatomy Exhibit")
+    expect(page).to have_content("Revolutionary War Exhibit")
   end
 end

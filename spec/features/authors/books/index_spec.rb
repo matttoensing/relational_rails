@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'author books index' do
   it 'displays all books in author index' do
-    author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
-    book1 = author.books.create!(title: "Game of Drones", pages: 500, awards: true)
-    book2 = author.books.create!(title: "Game of bones", pages: 400, awards: true)
+    author = Author.create!(name: 'Michael Lewis', published: true, age: 48, created_at: 48.seconds.ago)
+    book1 = author.books.create!(title: "Game of Rails", pages: 400, awards: true)
+    book2 = author.books.create!(title: "Ruby on Thrones", pages: 562, awards: true)
+
 
     visit "/authors/#{author.id}/books"
 
@@ -27,10 +28,10 @@ RSpec.describe 'author books index' do
   end
 
   it 'user sees a link that sorts books alphabetically by title' do
-    author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
-    book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: true)
-    book2 = author.books.create!(title: "Wild wild west", pages: 400, awards: true)
-    book3 = author.books.create!(title: "Memphis vibes", pages: 400, awards: true)
+    author = Author.create!(name: 'Michael Lewis', published: true, age: 48, created_at: 48.seconds.ago)
+    book1 = author.books.create!(title: "Game of Rails", pages: 400, awards: true)
+    book2 = author.books.create!(title: "Ruby on Thrones", pages: 562, awards: true)
+    book3 = author.books.create!(title: "Havasu Tour Guide", pages: 125, awards: true)
 
     visit "/authors/#{author.id}/books"
 
@@ -40,10 +41,10 @@ RSpec.describe 'author books index' do
   end
 
   it 'sorts by title when clicking the link' do
-    author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
-    book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: true)
-    book2 = author.books.create!(title: "Wild wild west", pages: 400, awards: true)
-    book3 = author.books.create!(title: "Memphis vibes", pages: 400, awards: true)
+    author = Author.create!(name: 'Michael Lewis', published: true, age: 48, created_at: 48.seconds.ago)
+    book1 = author.books.create!(title: "Game of Rails", pages: 400, awards: true)
+    book2 = author.books.create!(title: "Ruby on Thrones", pages: 562, awards: true)
+    book3 = author.books.create!(title: "Havasu Tour Guide", pages: 125, awards: true)
 
     visit "/authors/#{author.id}/books"
 
@@ -55,9 +56,9 @@ RSpec.describe 'author books index' do
   end
 
   it 'can see a link to edit for each book' do
-    author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
-    book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: true)
-    book2 = author.books.create!(title: "Wild wild west", pages: 400, awards: true)
+    author = Author.create!(name: 'Michael Lewis', published: true, age: 48, created_at: 48.seconds.ago)
+    book1 = author.books.create!(title: "Game of Rails", pages: 400, awards: true)
+    book2 = author.books.create!(title: "Ruby on Thrones", pages: 562, awards: true)
 
     visit "authors/#{author.id}/books"
 
@@ -71,10 +72,10 @@ RSpec.describe 'author books index' do
 
   describe 'user can filter books by number of pages' do
     it 'has a form and button to submit a number' do
-      author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
-      book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: true)
-      book2 = author.books.create!(title: "Wild wild west", pages: 124, awards: true)
-      book3 = author.books.create!(title: "Jungle Beats", pages: 247, awards: true)
+      author = Author.create!(name: 'Michael Lewis', published: true, age: 48, created_at: 48.seconds.ago)
+      book1 = author.books.create!(title: "Game of Rails", pages: 400, awards: true)
+      book2 = author.books.create!(title: "Ruby on Thrones", pages: 562, awards: true)
+      book3 = author.books.create!(title: "Havasu Tour Guide", pages: 125, awards: true)
 
       visit "authors/#{author.id}/books"
 
@@ -84,10 +85,10 @@ RSpec.describe 'author books index' do
     end
 
     it 'can submit a number to filter books by page number' do
-      author = Author.create!(name: "Ezze Alwafai", published: true, age: 35)
-      book1 = author.books.create!(title: "Austin city limits", pages: 500, awards: true)
-      book2 = author.books.create!(title: "Wild wild west", pages: 124, awards: true)
-      book3 = author.books.create!(title: "Jungle Beats", pages: 247, awards: true)
+      author = Author.create!(name: 'Michael Lewis', published: true, age: 48, created_at: 48.seconds.ago)
+      book1 = author.books.create!(title: "Game of Rails", pages: 400, awards: true)
+      book2 = author.books.create!(title: "Ruby on Thrones", pages: 562, awards: true)
+      book3 = author.books.create!(title: "Havasu Tour Guide", pages: 125, awards: true)
 
       visit "authors/#{author.id}/books"
       fill_in :pages, with: 200
@@ -95,7 +96,7 @@ RSpec.describe 'author books index' do
       click_on "Filter"
 
       expect(current_path).to eq("/authors/#{author.id}/books")
-      expect(page).to_not have_content("Wild wild west")
+      expect(page).to_not have_content("Havasu Tour Guide")
       expect(page).to have_button("Filter")
     end
   end

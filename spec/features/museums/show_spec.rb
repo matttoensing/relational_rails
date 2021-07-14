@@ -21,9 +21,9 @@ RSpec.describe 'user sees one museum' do
       Museum.destroy_all
 
       museum = Museum.create!(name: 'Denver Natural History Museum', free: true, entry_fee: 25, created_at: 10.seconds.ago)
-      exhibit1 = museum.exhibits.create!(title: "The Toensing Exhibit", person_limit: 30, photos: true, flash: true)
-      exhibit2 = museum.exhibits.create!(title: "The Alwafai Exhibit", person_limit: 40, photos: true, flash: true)
-      exhibit3 = museum.exhibits.create!(title: "The Jones Exhibit", person_limit: 120, photos: true, flash: true)
+      exhibit1 = museum.exhibits.create!(title: "The Ancient Egyptian Exhibit", person_limit: 30, photos: true, flash: true)
+      exhibit2 = museum.exhibits.create!(title: "The Beast From the Middle East Exhibit", person_limit: 40, photos: true, flash: true)
+      exhibit3 = museum.exhibits.create!(title: "The Human Anatomy Exhibit", person_limit: 120, photos: true, flash: true)
 
       visit "/museums/#{museum.id}"
 
