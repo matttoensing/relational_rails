@@ -26,13 +26,25 @@ System Requirements
 - Postgres
 - All routes in config were included by handroll
 
-Rubric
+
 <img width="883" alt="Screen Shot 2021-07-14 at 10 59 07 AM" src="https://user-images.githubusercontent.com/80132364/125670330-47f2a403-82dd-4fd0-bb02-63dc659e4abb.png">
 
 
 
 User Stories
 
+Iteration 1
+CRUD
+```
+[ ] done
+
+User Story 1, Parent Index (x2)
+
+For each parent table
+As a visitor
+When I visit '/parents'
+Then I see the name of each parent record in the system
+```
 
 
 * Ruby version
