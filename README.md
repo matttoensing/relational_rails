@@ -15,8 +15,10 @@ Ruby on Rails
  * Rails verson 5.2.5
 
 Databases and ActiveRecord
+<img width="607" alt="Screen Shot 2021-07-14 at 1 22 06 PM" src="https://user-images.githubusercontent.com/80132364/125687926-baf22e51-248c-4ad8-b3bb-c951636e27f2.png">
+
 - Postgres
-- 
+
 TDD
 * How to run the test suite
 * include rspec gems for testing
