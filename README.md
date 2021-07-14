@@ -9,11 +9,6 @@ Learning Goals
 - Create instance and class methods on a Rails model that use ActiveRecord methods and helpers
 - Write model and feature tests that fully cover data logic and user behavior
 
-Ruby on Rails
-* Ruby version
-  2.7.2
- * Rails verson 5.2.5
-
 Databases and ActiveRecord
 
 
@@ -22,11 +17,16 @@ Databases and ActiveRecord
 - Postgres
 
 TDD
-* How to run the test suite
-* include rspec gems for testing
+- RSpec
+- Capybara
+- Launchy
+- Orderly
+- SimpleCov
+- Pry 
 
 System Requirements
 - Rails version 5.2.5
+- Ruby 2.7.2
 - Postgres
 - All routes in config were included by handroll
 
